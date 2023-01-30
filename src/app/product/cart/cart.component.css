@@ -1,0 +1,22 @@
+.card{
+  height: 600px;
+  margin: 25px;
+  padding: 25px;
+}
+.center{
+  position: absolute;
+  top: 40%;
+  left: 43%;
+  text-align: center;
+}
+.delete{
+  background-color: red;
+  color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+img{
+height: 150px;
+}
+

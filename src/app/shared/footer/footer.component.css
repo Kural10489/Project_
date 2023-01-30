@@ -1,0 +1,24 @@
+.navigate{
+  height: 40px;
+  color: aliceblue;
+  background-color:#343a40;
+}
+a,h4{
+  text-decoration: none;
+  color: aliceblue;
+}
+.footerContainer{
+  background-color:#2c3339;
+  height: 350px;
+}
+.title h4{
+  margin: 10px 75px;
+  font-weight: 600;
+}
+.footer a{
+  margin: 10px 105px;
+}
+.footer .div3{
+position: relative;
+left: 45px;
+}

@@ -1,0 +1,14 @@
+.registerForm{
+  width: 40%;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  left: 450px;
+  top: 100px;
+  }
+  form{
+  border: 1px solid rgb(233, 226, 226);
+  }
+  .center{
+    display: flex;
+  }

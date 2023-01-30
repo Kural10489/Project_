@@ -1,0 +1,55 @@
+<br>
+<div class="center">
+
+<ng-container *ngIf="http.DispatchProductsDetails">
+  <div class="title">
+    <h2 >Your orders</h2>
+  </div>
+  <div class="container containerDiv" *ngFor="let product of http.DispatchProductsDetails">
+  <div class="card">
+    <div class="elements">
+      <h4>{{product.title}}</h4>
+      <img src="{{product.image}}" alt="">
+      <p><strong>Price: </strong>{{product.price|currency:'INR'}}</p>
+      <small>{{product.description}}</small>
+      <div class="icons">
+        <span class="material-symbols-outlined flag">
+          flag_circle
+          </span>-----
+        <span class="material-symbols-outlined">
+          package
+          </span>-----
+        <span class="material-symbols-outlined">
+          local_shipping
+          </span>----
+          <span class="material-symbols-outlined">
+            verified
+            </span>
+      </div>
+      <div class="msg">
+        <strong id="order">Order Placed</strong>
+        <span>Shipped</span>
+        <span>Out for Delivery</span>
+        <span>Deliverd</span>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+</ng-container>
+
+<!-- <ng-container *ngIf="http.DispatchProductsDetails">
+  <div class="title">
+    <h2 >You havn't Ordered any products</h2>
+   <a href=""><button class="btn btn-dark">Shop Now</button></a>
+  </div>
+
+</ng-container> -->
+
+</div>
+<br>
+<br>
+<br>
+<br>

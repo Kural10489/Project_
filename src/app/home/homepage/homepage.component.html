@@ -1,0 +1,238 @@
+
+<div class="applicants d-flex header">
+
+  <div class="box-container picks topLinks">
+    <div class="box">
+      <h4 class="heading">Small Gifts Under {{20|currency:'INR'}}</h4>
+      <img src="https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/01/DiscoTec/2022/HOL22/StockingStuffers/GW/CategoryCards/HOL22_SS_Under20_GW_CatCard_DT_2x._SY608_CB604984111_.jpg" alt=""> <br>
+
+      <a routerLink="/soon">Shop now</a>
+    </div>
+  </div>
+
+  <div class="box-container picks topLinks ">
+    <div class="box">
+      <h4 class="heading">For Your Fitness Needs</h4>
+      <img src="https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Dash_Fitness_2X._SY608_CB639748111_.jpg" alt=""> <br>
+
+      <a routerLink="/soon">Shop now</a>
+    </div>
+  </div>
+
+  <div class="box-container picks topLinks">
+    <div class="box">
+      <h4 class="heading">Electronics</h4>
+      <img src="https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_2x._SY608_CB432774322_.jpg" alt=""> <br>
+      <a routerLink="/soon">Shop now</a>
+    </div>
+  </div>
+
+  <ng-container *ngIf="!user.getUserName()">
+    <div class="row recommendaded ">
+      <div class="col-12 heading signin"> <h4>Sign in for the  <br>
+        best experience</h4> <br> <br>
+        <a class="btn btn-warning topbtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="login">Login</a>
+      </div>
+      <div class="col-12">
+        <img src="https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/01/AmazonExports/Fuji/2020/October/Fuji_D2_45M_en_US_2x._CB418309979_.jpg" alt="">
+      </div>
+      <div class="col-8">
+          <h3>See personalized <br>
+            recommendations</h3>
+      </div>
+
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="user.getUserName()">
+    <div class="row recommendaded ">
+      <div class="col-12 heading signin "> <h4>Hi {{user.getUserName()}}.. <br>
+       Greetings!</h4> <br>
+        <a class="btn btn-warning topbtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="women">Shop Now</a>
+      </div>
+      <div class="col-12">
+        <img src="https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/01/AmazonExports/Fuji/2020/October/Fuji_D2_45M_en_US_2x._CB418309979_.jpg" alt="">
+      </div>
+      <div class="col-8">
+          <h3>Now See Custemized <br>
+            recommendations</h3>
+      </div>
+
+    </div>
+  </ng-container>
+
+  </div>
+  <!-- Today's Deal -->
+  <div class="Home">
+    <br>
+  <h3 class="heading">Deal's of the day</h3>
+  <br>
+  <div class="cardcontainer">
+  <div class="applicants d-flex ">
+
+  <div class="topPicks">
+    <h4 class="heading">Top picks for your home</h4>
+    <div class="box-container">
+    <div class="box">
+      <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-372x232----B08RDL6H79._SY232_CB667322346_.jpg" alt=""> <br>
+      <small>Air Conditioners</small>
+    </div>
+    <div class="box">
+      <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG15/Irfan/GATEWAY/MSO/B08345R1ZW---372x232._SY232_CB667322346_.jpg" alt=""> <br>
+      <small>Refrigerators</small>
+    </div>
+  </div>
+  <div class="box-container">
+    <div class="box">
+      <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG15/Irfan/GATEWAY/MSO/B07G5J5FYP._SY232_CB667322346_.jpg" alt=""> <br>
+      <small>Microwaves</small>
+    </div>
+    <div class="box">
+      <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08CPQVLZT._SY232_CB667322346_.jpg" alt=""> <br>
+      <small>Washing Machine</small>
+    </div>
+  </div>
+  <a routerLink="/soon">see more</a>
+
+  </div>
+  <!-- Upgrading Home  -->
+
+  <div class="upgradeHome">
+    <h4 class="heading">Upgrade your home | Amazon Brands</h4>
+    <div class="box-container">
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img22/BAU/Oct/372X232_11._SY232_CB606110532_.jpg" alt=""> <br>
+        <small>Upto 60% off | LED Tvs</small>
+      </div>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img22/PB/MSO/Dec/372X232_AC_Fridge._SY232_CB620369430_.jpg" alt=""> <br>
+        <small>Upto 60% off | Large Applicants</small>
+      </div>
+    </div>
+    <div class="box-container">
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img22/BAU/Oct/372X232_4._SY232_CB606110532_.jpg" alt=""> <br>
+        <small>Upto 60% off | Furniture</small>
+      </div>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img22/BAU/Oct/372X232_2._SY232_CB606110532_.jpg" alt=""> <br>
+        <small>Upto 60% off | kitchen products</small>
+      </div>
+    </div>
+    <a routerLink="/soon">see more</a>
+  </div>
+  <!-- Styling the gome  -->
+  <div class="style">
+    <h4 class="heading">Revamp your home in style</h4>
+    <div class="box-container">
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG20/Home/2021/GW/MSO/April/372x232_1_High._SY232_CB670263840_.jpg" alt=""> <br>
+        <small>Bedsheets & curtains</small>
+      </div>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG20/Home/2021/GW/MSO/April/372x232_2_High._SY232_CB670263840_.jpg" alt=""> <br>
+        <small>Home decoration</small>
+      </div>
+    </div>
+    <div class="box-container">
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG20/Home/2021/GW/MSO/April/372x232_3_High._SY232_CB670263840_.jpg" alt=""> <br>
+        <small>Home storage</small>
+      </div>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IMG20/Home/2021/GW/MSO/April/372x232_4_High._SY232_CB670263840_.jpg" alt=""> <br>
+        <small>Lighting Sounds</small>
+      </div>
+    </div>
+    <a href="/soon">see more</a>
+
+  </div>
+  </div>
+  <br>
+
+  <h3 class="heading ">Under ₹599 | Home & kitchen budget buys | Local shops</h3> <a href="#" class="d-flex ">See all</a>
+  <div class="Budget">
+    <img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/516X+uXX2xL._AC_SY400_.jpg" alt="">
+    <img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71nEPUH6CBS._AC_SY400_.jpg" alt="">
+    <img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71jDgbvJQCL._AC_SY400_.jpg" alt="">
+    <img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91CZqaO7BWL._AC_SY400_.jpg" alt="">
+    <img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61H7sr-PKSS._AC_SY400_.jpg" alt="">
+    <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/IN-hq/2019/img/Kitchen/XCM_Manual_372x232_1198417XCM_Manual_1198417__4_1573567224_jpg_LOWER_QL85_._SY232_CB448746407_.jpg" alt="">
+  </div>
+  <br>
+  <div class="applicants d-flex pickcontainer">
+
+    <div class="topPicks">
+    <h4 class="heading">Top picks for your home</h4>
+    <div class="box-container">
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img21/PC/Computers/GW/DBQC/D21343116_IN_CEPC_BAU_GW_graphics_March21_dbqc_5._SY232_CB655805757_.jpg" alt=""> <br>
+        <small>Smartwatches</small>
+      </div>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img21/PC/Computers/GW/DBQC/D21343116_IN_CEPC_BAU_GW_graphics_March21_dbqc0.5x_6._SY116_CB655805757_.jpg" alt=""> <br>
+        <small>Tablets</small>
+      </div>
+    </div>
+    <div class="box-container">
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img21/PC/Computers/GW/DBQC/D21343116_IN_CEPC_BAU_GW_graphics_March21_dbqc_7._SY232_CB655805757_.jpg" alt=""> <br>
+        <small>Laptops</small>
+      </div>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img21/PC/Computers/GW/DBQC/D21343116_IN_CEPC_BAU_GW_graphics_March21_dbqc_8._SY232_CB655805757_.jpg" alt=""> <br>
+        <small>Monitors</small>
+      </div>
+    </div>
+    <a routerLink="/soon">see more</a>
+
+    </div>
+    <!-- Upgrading Home  -->
+    <div class="box-container picks">
+        <h4 class="heading">Value Packs under ₹599 | Amazon Brands & more</h4>
+        <div class="box">
+          <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/Symbol/2021/wrs/mencombo_high._SY608_CB666769241_.jpg" alt=""> <br>
+
+        </div>
+      <a href="/soon">End of season sale</a>
+    </div>
+    <!-- Di 3 -->
+
+    <div class="box-container picks">
+      <h4 class="heading">New Series CRUSHED | Watch FREE on miniTV</h4>
+      <div class="box">
+        <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img17/Home/AmazonTV/Ravina/Desktop/DeskCC-758x608_CRUSHED-S2_V2_1._SY608_CB620412632_.jpg" alt=""> <br>
+        <h4>Watch For Free</h4>
+      </div>
+    <a routerLink="/soon">Watch Now</a>
+  </div>
+
+    <!-- Styling the gome  -->
+    <div class="style">
+      <h4 class="heading">Birthday store</h4>
+      <div class="box-container">
+        <div class="box">
+          <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img20/Events/GWBdaystore/Artboard_1QC2_2x._SY232_CB662999952_.jpg" alt=""> <br>
+          <small>Gifts for Men</small>
+        </div>
+        <div class="box">
+          <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img20/Events/GWBdaystore/Artboard_2QC2_2x._SY232_CB662999952_.jpg" alt=""> <br>
+          <small>gifts for Woman</small>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box">
+          <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img20/Events/GWBdaystore/Artboard_3QC2_2x._SY232_CB662999952_.jpg" alt=""> <br>
+          <small>Gifts for boys</small>
+        </div>
+        <div class="box">
+          <img src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/G/31/img20/Events/GWBdaystore/Artboard_4QC2_1x._SY116_CB662999955_.jpg" alt=""> <br>
+          <small>Gifts for girls</small>
+        </div>
+      </div>
+      <a routerLink="/soon">see more</a>
+
+    </div>
+    </div>
+  </div>
+  </div>

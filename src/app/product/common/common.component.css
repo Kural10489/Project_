@@ -1,0 +1,60 @@
+
+.card{
+  padding: 20px;
+  margin: 35px;
+  margin-left:50px;
+}
+.card img{
+
+  width: 120px;
+  height: 200px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+.card img:hover{
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+.productTitle,.productDescribtion{
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 100ch;
+}
+
+.green{
+  background-color: rgb(11, 11, 11);
+  color: aliceblue;
+  border-radius: 10px;
+}
+.add{
+position: relative;
+left: 80px;
+}
+.add button{
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background-color:#dcddde;
+  border-radius: 10px;
+  width: 50px;
+  height: 28px;
+  border: #dcddde 1px solid;
+}
+
+.filter{
+  border: solid 1px rgb(242, 242, 242);
+  background-color: white;
+  box-shadow: 5px 2px 10px #888888;
+  height: 250px;
+  width: 200px;
+}
+
+/* .container{
+  display: flex;
+  flex-direction: row;
+} */
+.filter input,.filter label,.filter h4{
+  position: relative;
+  top: 30px;
+  left: 10px;
+}

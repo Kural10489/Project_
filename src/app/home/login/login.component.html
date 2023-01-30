@@ -1,0 +1,63 @@
+
+<div>
+  <div class=" d-flex justify-content-center align-items-center form" id="form">
+
+
+
+    <form class="shadow p-3 mb-5 bg-white rounded" [formGroup]="loginForm">
+      <h3 class="heading">Login</h3>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input type="text" formControlName="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" pattern="[a-zA-Z0-9]{4,}" required>
+        <small class="text-danger" *ngIf="loginForm.get('text')?.touched &&! loginForm.get('text')?.dirty">Name is required</small>
+        <small class="text-danger" *ngIf="loginForm.get('text')?.dirty&&loginForm.get('text')?.errors?.['minlength']">Name should be atleast 4 charecters</small>
+  </div> <br>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required
+          [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched "
+          >
+          <small class="text-danger" *ngIf="loginForm.get('email')?.touched &&! loginForm.get('email')?.dirty">Email Id is required</small>
+          <small class="text-danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']">Email Must Start with A-z and should have @</small>
+    </div> <br>
+    <div class="form-group">
+      <label for="exampleInputPassword1" >Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password" pattern="[a-zA-Z0-9]{4,}" required>
+      <small class="text-danger" *ngIf="loginForm.get('password')?.touched &&! loginForm.get('password')?.dirty">password is required</small>
+      <small class="text-danger" *ngIf="loginForm.get('password')?.dirty&&loginForm.get('password')?.errors?.['minlength']">Password should be atleast 4 charecters</small>
+
+    </div> <br>
+    <button type="submit" class="btn btn-warning  text-center " id="Formbtn"
+    [disabled]="loginForm.untouched ||loginForm.invalid" (click)="onLogin()"
+    >Submit</button> <br>
+    <small>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</small> <br>
+    <small class="d-flex justify-content-center align-items-center  ">New to amazon?</small>
+
+  <button class="btn createBtn" routerLink="/register">Create a Account</button>
+
+
+    <br>
+    <div class="links d-flex justify-content-center">
+      <a href="" class="">Condition of use</a>
+      <a href="" class="">Privacy notice</a>
+      <a href="" class=""> Help</a>
+    </div>
+  </form>
+  </div>
+  <div class="container">
+    <div class="popup" id="popup">
+      <img src="https://cdn-icons-png.flaticon.com/512/665/665939.png">
+      <h2>Login Sucess</h2>
+      <p>Your details have been Successfully Verified</p>
+      <button type="button" (click)="closePopup()">Ok</button>
+    </div>
+  </div>
+  <br> <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>

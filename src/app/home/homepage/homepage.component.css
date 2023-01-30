@@ -1,0 +1,135 @@
+
+.Home{
+  background-color: rgb(243, 243, 243);
+  padding: 10px;
+}
+.card{
+  margin: 0 5px;
+}
+
+.product{
+  position: relative;
+  left: 120px;
+  width: 1000px;
+  overflow-x: scroll;
+
+}
+.product::-webkit-scrollbar {
+  display: none;
+}
+.scrollCard{
+  position: relative;
+  left: 33px;
+}
+.nav{
+  height: 70px;
+}
+.links{
+  display: flex;
+  align-items: center;
+
+}
+.links a{
+  position: relative;
+  left: 1290px;
+}
+*{
+  text-decoration:none;
+}
+
+.card{
+  height: 250px;
+}
+.card img
+{
+  height: 120px;
+  width: 120px;
+}
+#offer{
+background-color: rgb(224, 20, 20);
+padding: 2px;
+border-radius: 3px;
+color: aliceblue;
+}
+.heading{
+  font-weight: 700;
+  text-align:center
+}
+.applicants{
+  padding: 3px;
+  margin-left: 15px;
+}
+.upgradeHome{
+  margin: 0px 30px;
+}
+.box-container{
+  display: flex;
+}
+.topPicks,.upgradeHome,.style{
+  border: .1px solid rgb(232, 232, 227);
+  padding: 5px;
+}
+.box,.topPicks,.upgradeHome,.style{
+  background-color: white;
+}
+.applicants img{
+width: 180px;
+margin: 5px;
+}
+.Budget{
+  display: flex;
+  padding: 10px;
+  border: .1px solid rgb(232, 232, 227);
+}
+.Budget img{
+  height: 200px;
+  width: 260px;
+  margin: 10px;
+}
+.pickcontainer{
+padding: 10px;
+border: .1px solid rgb(232, 232, 227);
+}
+.picks{
+
+flex-direction: column;
+}
+.picks img{
+  width: 300px;
+}
+.topLinks{
+  margin: 5px;
+}
+.topLinks .box:hover{
+  box-shadow: 12px 12px 2px 1px rgba(30, 30, 31, 0.2);
+}
+.topLinks div{
+  background-color: white;
+  padding: 10px;
+  border: .1px solid rgb(232, 232, 227);
+
+}
+.topbtn{
+  border: .1px solid rgb(184, 182, 182);
+  width: 200px;
+  height: 35px;
+}
+.recommendaded{
+  position: relative;
+  top: 25px;
+  right: 30px;
+}
+.recommendaded img,.recommendaded h3{
+position: relative;
+left: 110px;
+
+}
+.header
+{
+  background-image: url('https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61W-QJozfgL._SX3000_.jpg');
+  height: 500px;
+}
+
+.recommendaded h4,.recommendaded h3{
+  color: white;
+}

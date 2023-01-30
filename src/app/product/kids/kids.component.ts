@@ -1,0 +1,24 @@
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { CartService } from 'src/app/shared/service/cart.service';
+import { HttpService } from 'src/app/shared/service/http.service';
+
+@Component({
+  selector: 'app-kids',
+  templateUrl: './kids.component.html',
+  styleUrls: ['./kids.component.css']
+})
+export class KidsComponent {
+  public searchKey:string='';
+
+  constructor(private http:HttpClient,public httpMethods:HttpService,private cart:CartService){}
+
+  ngOnInit():void{
+    this.httpMethods.getProductDetais();
+
+    this.cart.search.subscribe(val=>{
+      this.searchKey=val;
+    })
+
+  }
+}

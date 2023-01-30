@@ -1,0 +1,40 @@
+
+.card{
+  padding: 20px;
+  margin: 50px;
+}
+.card img{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+.card img:hover{
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+.productTitle,.productDescribtion{
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 100ch;
+}
+
+.green{
+  background-color: rgb(2, 11, 25);
+  color: aliceblue;
+  border-radius: 10px;
+}
+.add{
+  position: relative;
+  left: 80px;
+  }
+  .add button{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color:#dcddde;
+    border-radius: 10px;
+    width: 50px;
+    height: 28px;
+    border: #dcddde 1px solid;
+  }
