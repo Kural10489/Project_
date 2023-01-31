@@ -40,15 +40,12 @@ public onLogin(){
     return a.Email===this.loginForm.value.email && a.Password===this.loginForm.value.password
    })
    if(user){
-    //  alert("login Sucess");
-     // this.SnackBar.open('Login Sucess','',{duration:4000, verticalPosition:'top',panelClass:['snackBar']});
      localStorage.setItem('name',this.loginForm.value.text);
      localStorage.setItem('password',this.loginForm.value.password);
      this.openPopup();
-    // this.route.navigate(['']);
    }
    else{
-    alert('User not found');
+    this.errorPopup();
    }
   });
 
@@ -58,6 +55,20 @@ public openPopup(){
   let form=document.getElementById('form');
   popup?.classList.add('open-popup');
   form?.classList.add('formBlur');
+
+}
+public errorPopup(){
+  let errorpopup=document.getElementById('Errorpopup');
+  let form=document.getElementById('form');
+  errorpopup?.classList.add('open-popup');
+  form?.classList.add('formBlur');
+}
+public closeErrorPopup(){
+  let errorpopup=document.getElementById('Errorpopup');
+  let form=document.getElementById('form');
+  errorpopup?.classList.remove('open-popup');
+  this.route.navigate(['/login']);
+  form?.classList.remove('formBlur');
 
 }
 
