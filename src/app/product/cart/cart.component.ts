@@ -12,13 +12,17 @@ import { HttpService } from 'src/app/shared/service/http.service';
 export class CartComponent {
 
   public product:any=[];
+  public cartViewProducts:any;
   public total!:number;
+
   constructor(public cart:CartService,private route:Router,
     private http:HttpClient, public httpService:HttpService){}
   ngOnInit():void{
     this.cart.getProducts().subscribe(response=>{
       this.product=response;
       this.httpService.getCartProducts();
+      this.removeDuplicateCartView();
+
     })
   }
 
@@ -35,5 +39,9 @@ public navigateToCheckout(){
     this.route.navigate(['checkout'])
   }
 
+public removeDuplicateCartView(){
+  this.cartViewProducts=new Set(this.product);
+  console.log(this.cartViewProducts);
+}
 
 }
