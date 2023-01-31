@@ -38,8 +38,6 @@ public addToCart(product:any){
 public removeCartItemCount(product:any){
   this.cart.removeCartItem(product);
   this.addedToCartToggle();
-  // this.cart.productIds.splice(product.id,1);
-  this.cart.productIds.shift();
   this.countDecrease(product);
 }
 public addToCartCount(product:any){

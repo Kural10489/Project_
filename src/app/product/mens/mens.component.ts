@@ -26,22 +26,17 @@ this.cart.search.subscribe(val=>{
 
   public addToCart(product:any){
     this.cart.productId=product.id;
-    product.Quantity++;
     this.cart.productIds.push(product.id);
-    // this.cart.totalCost.add(product.price);
     this.cart.totalCost.push(product.price);
     this.cart.addedToCart=true;
     this.cart.addtoCart(product);
     this.cart.products+=product;
-    // localStorage.setItem('products',JSON.stringify(this.cart.products));
+    this.countIncrease(product);
   }
 
   public removeCartItemCount(product:any){
     this.cart.removeCartItem(product);
     this.addedToCartToggle();
-    // this.cart.productIds.splice(product.id,1);
-    this.cart.productIds.shift();
-    this.cart.totalCost.splice(product.price);
     this.countDecrease(product);
   }
   public addToCartCount(product:any){

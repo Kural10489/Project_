@@ -15,7 +15,7 @@ export class WomenComponent {
   public productidCheck=[];
   // search
   public searchKey:string='';
-  
+
   constructor(private http:HttpClient,public httpMethods:HttpService,public cart:CartService){}
 
   ngOnInit():void{
@@ -41,8 +41,6 @@ export class WomenComponent {
   }
   removeCartItemCount(product:any){
     this.cart.removeCartItem(product);
-    // this.cart.productIds.splice(product.id,1);
-    this.cart.productIds.shift();
     this.countDecrease(product);
   }
   addToCartCount(product:any){

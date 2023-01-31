@@ -9,7 +9,6 @@ export class HttpService {
   public userDetails:any;
   public DispatchProductsDetails:any;
   public cartProductDetails:any;
-
    constructor(private http:HttpClient) {}
 
    ngOnInit(): void {

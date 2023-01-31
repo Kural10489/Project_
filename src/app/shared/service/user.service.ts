@@ -7,7 +7,9 @@ import { CartService } from './cart.service';
 })
 export class UserService {
 
+  public searchBarActivity:boolean=false;
   authenticate!:boolean;
+  
   server='http://localhost:3000/user';
   constructor(private cart:CartService,private http:HttpClient) { }
 

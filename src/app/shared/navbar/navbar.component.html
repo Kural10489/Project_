@@ -2,11 +2,13 @@
   <div class="container-fluid">
     <h2 style="color: aliceblue;">Amazon</h2>
 
-
-        <input type="search" id="form1" class="form-control search" placeholder="Search"  (keyup)="search($event)"/>
-        <span class="material-symbols-outlined searchbtn">
-          search
-          </span>
+<ng-container
+*ngIf="user.searchBarActivity">
+<input type="search" id="form1" class="form-control search" placeholder="Search"  (keyup)="search($event)"/>
+<span class="material-symbols-outlined searchbtn">
+  search
+</span>
+</ng-container>
     <div class="d-flex align-items-center cart ">
       <ng-container *ngIf="user.getUserName()">
         <span class="user">Hello,{{user.getUserName()}}</span>
@@ -27,22 +29,22 @@
 <nav>
   <ul class="nav justify-content-around align-items-center " id="nav2">
     <li class="nav-item">
-      <a class="nav-link active" routerLink="" routerLinkActive="Active">Home</a>
+      <a class="nav-link active" routerLink=""(click)="hideSearch()" routerLinkActive="Active">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="mens">Mens</a>
+      <a class="nav-link" routerLink="mens" (click)="showSearch()">Mens</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="women">woman</a>
+      <a class="nav-link" routerLink="women" (click)="showSearch()">woman</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="kids">Kids</a>
+      <a class="nav-link" routerLink="kids" (click)="showSearch()">Kids</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="Gifts">Gift Cards</a>
+      <a class="nav-link" routerLink="Gifts" (click)="hideSearch()">Gift Cards</a>
     </li>
     <li>
-      <a routerLink="greatDeals" class=" nav-link d-flex">Shop great deals now</a>
+      <a routerLink="greatDeals" class=" nav-link d-flex" (click)="hideSearch()">Shop great deals now</a>
     </li>
   </ul>
 </nav>

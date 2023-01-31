@@ -27,4 +27,10 @@ public navigateToCart(){
     this.route.navigate(['cart']);
   }
 
+public showSearch(){
+this.user.searchBarActivity=true;
+}
+public hideSearch(){
+  this.user.searchBarActivity=false;
+}
 }

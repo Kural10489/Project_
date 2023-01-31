@@ -43,7 +43,7 @@ public addtoCart(product:any){
   }
 
 public getTotalPrice(){
-  return this.totalCost.reduce((a,b)=>a+b)
+  return this.totalCost.reduce((a,b)=>a+b);
 }
 
 public removeCartItem(product:any){
@@ -51,7 +51,11 @@ public removeCartItem(product:any){
       if(product.id===currentProducts.id){
         this.cartItemList.splice(index,1);
          // this.productIds.splice(product.id,1);
-    this.productIds.shift();
+        // this.productIds.shift();
+        this.removeProductId(product);
+        console.log(this.productIds);
+       console.log(this.totalCost);
+      this.removeProductPrice(product);
       }
     })
     this.productList.next(this.cartItemList);
@@ -66,4 +70,26 @@ public removeAllCartItems(){
 public productIdCheck(productId:any){
 return this.productIds.find((a)=>a===productId)
 }
+public removeProductPrice(product:any){
+  let removePrice=this.totalCost.indexOf(product.price);
+  if(removePrice>-1){
+    this.totalCost.splice(removePrice,1);
+    console.log(this.totalCost);
+  }
+}
+public removeProductId(product:any){
+  let removeProductId=this.productIds.indexOf(product.id);
+  if(removeProductId>-1){
+    this.productIds.splice(removeProductId,1);
+  }
+}
+
+// public countIncrease(product:any){
+//   product.Quantity=product.Quantity+1
+
+// }
+// public countDecrease(product:any){
+//   product.Quantity=product.Quantity-1
+
+// }
 }
