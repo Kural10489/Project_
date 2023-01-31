@@ -63,7 +63,7 @@
     {
       "id": 1,
       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      "price": 109.95,
+      "price": 1059.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "Men clothing",
       "Quantity": 0,
@@ -73,7 +73,7 @@
     {
       "id": 3,
       "title": "Mens Cotton Jacket",
-      "price": 55.99,
+      "price": 556.99,
       "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
       "category": "Men clothing",
       "Quantity": 0,
@@ -86,7 +86,7 @@
     {
       "id": 4,
       "title": "Mens Casual Slim Fit",
-      "price": 15.99,
+      "price": 1500.99,
       "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
       "category": "Men clothing",
       "Quantity": 0,
@@ -112,7 +112,7 @@
     {
       "id": 16,
       "title": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
-      "price": 29.95,
+      "price": 2900.95,
       "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
       "category": "women's clothing",
       "image": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
@@ -125,7 +125,7 @@
     {
       "id": 17,
       "title": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
-      "price": 39.99,
+      "price": 3900.99,
       "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
       "category": "women's clothing",
       "Quantity": 0,
@@ -138,7 +138,7 @@
     {
       "id": 18,
       "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
-      "price": 9387.85,
+      "price": 937.85,
       "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
       "category": "women's clothing",
       "Quantity": 0,
@@ -151,7 +151,7 @@
     {
       "id": 19,
       "title": "Opna Women's Short Sleeve Moisture",
-      "price": 70.95,
+      "price": 700.95,
       "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
       "category": "women's clothing",
       "Quantity": 0,
@@ -216,7 +216,7 @@
     {
       "id": 24,
       "title": "Men's Stylish Hooded Graphic Printed T-Shirt (Olive Green, Black)",
-      "price": 680,
+      "price": 3800,
       "description": "Dial Color: Grey, Case Shape: Round, Case Material: PlastiC",
       "category": "Men clothing",
       "Quantity": 0,
@@ -233,13 +233,12 @@
       "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
       "rating": 3.9
     }
-
   ],
   "cart": [
     {
       "id": 24,
       "title": "Benkleys Kids Dancing Cactus Toys Can Sing Wriggle",
-      "price": 7.95,
+      "price": 700.95,
       "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
       "category": "women's clothing",
       "Quantity": 1,
@@ -252,7 +251,7 @@
     {
       "id": 25,
       "title": "Naughty Ninos kids",
-      "price": 7.95,
+      "price": 5000,
       "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
       "category": "kid's clothing",
       "Quantity": 1,
@@ -294,8 +293,59 @@
       "Quantity": 0,
       "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
       "rating": 3.9
+    },
+    {
+      "id": 21,
+      "title": "Benkleys Kids Dancing Cactus Toys Can Sing Wriggle",
+      "price": 3274.95,
+      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      "category": "women's clothing",
+      "Quantity": 1,
+      "image": "https://m.media-amazon.com/images/I/61wfqexl21L._AC_UL640_FMwebp_QL65_.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
+    },
+    {
+      "id": 20,
+      "title": "Wembley Toys Talking Cactus Baby Toys for Kids Dancing Cactus Toys Can Sing Wriggle",
+      "price": 732.95,
+      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      "category": "women's clothing",
+      "Quantity": 1,
+      "image": "https://m.media-amazon.com/images/I/71ML2TRKAUL._AC_UL640_QL65_.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
+    },
+    {
+      "id": 23,
+      "title": "Naughty Ninos kids",
+      "price": 6537.95,
+      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      "category": "kid's clothing",
+      "Quantity": 1,
+      "image": "https://m.media-amazon.com/images/I/517SpI6jE1L._AC_UL640_FMwebp_QL65_.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
+    },
+    {
+      "id": 22,
+      "title": "Girls Contrast Mesh Overlay Sleeveless Bow Front and Belted kids",
+      "price": 4697.95,
+      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      "category": "women's clothing",
+      "Quantity": 1,
+      "image": "https://m.media-amazon.com/images/I/516ggf8oLCL._UY879_.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
     }
-
   ],
   "Orders": []
 }
