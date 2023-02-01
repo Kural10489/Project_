@@ -5,8 +5,9 @@
 }
 .card img{
   width: 200px;
-  height: 200px;
+  height: 225px;
   margin-bottom: 15px;
+  margin-left: 30px;
   transition: 0.3s ease-in-out;
 }
 .card img:hover{
@@ -37,4 +38,7 @@ max-width: 100ch;
     width: 50px;
     height: 28px;
     border: #dcddde 1px solid;
+  }
+  .cartbtn{
+    width: 100%;
   }

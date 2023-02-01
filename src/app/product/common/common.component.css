@@ -5,7 +5,7 @@
   margin-left:50px;
 }
 .card img{
-
+  margin-left: 50px;
   width: 120px;
   height: 200px;
   margin-bottom: 15px;
@@ -57,4 +57,7 @@ left: 80px;
   position: relative;
   top: 30px;
   left: 10px;
+}
+.cartbtn{
+  width: 100%;
 }
