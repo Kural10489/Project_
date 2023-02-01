@@ -4,7 +4,7 @@
 
 <ng-container
 *ngIf="user.searchBarActivity">
-<input type="search" id="form1" class="form-control search" placeholder="Search"  (keyup)="search($event)"/>
+<input type="search" id="search" class="form-control search" placeholder="Search"  name="search" (keyup)="search($event)"/>
 <span class="material-symbols-outlined searchbtn">
   search
 </span>
