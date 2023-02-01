@@ -47,3 +47,10 @@ left: 240px;
   left: 140px;
   margin-left: 40px;
 }
+
+.container{
+  margin-top: 20px;
+}
+.elements{
+  padding: 10px;
+}
