@@ -6,23 +6,29 @@ nav a{
 }
 .search{
   width: 500px;
+  border-radius: 30px;
+  position: relative;
+  left: 150px;
 }
+
 .searchbtn{
   height: 40px;
   position: relative;
-  right: 200px;
+  right: 50px;
   top: 8px;
 }
+
 #nav2{
   background-color:#2c3339;
 }
 #orders{
   text-decoration: none;
 }
-.cart{
 
+.cart{
   color: aliceblue;
 }
+
 .return{
   position: relative;
   right: 40px;
