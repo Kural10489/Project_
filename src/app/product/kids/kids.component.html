@@ -1,6 +1,6 @@
 <div class="container ">
   <div class="row ">
-<div *ngFor="let data of httpMethods.productDetails|filter:'kids':'title'|filter:searchKey:'title'" class="col-md-4" >
+<div *ngFor="let data of httpMethods.productDetails|filter:'kids':'category'|filter:searchKey:'title'" class="col-md-4" >
   <app-common [products]="data"></app-common>
 </div>
   </div>

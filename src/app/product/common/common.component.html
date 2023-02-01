@@ -4,7 +4,10 @@
         <h5 class="productTitle">{{products.title}}</h5>
         <p class="productDescribtion">{{products.description}}</p>
         <p><strong>Price: </strong> {{products.price|currency:"INR"}}</p>
-        <button class="btn btn-warning" (click)="addToCart(products)">Add to cart</button>
+
+        <div *ngIf="products.Quantity==0 || !cart.addedToCart">
+          <button class="btn btn-warning cartbtn" (click)="addToCart(products)">Add to cart</button>
+      </div>
 
         <div *ngIf="(products.Quantity>0|| cart.addedToCart) &&  products.id===cart.productId ||cart.addedToCart">
           <br>
