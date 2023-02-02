@@ -14,9 +14,8 @@ export class CheckoutComponent {
   constructor(private cart:CartService,public http:HttpService){}
   ngOnInit(): void {
     this.http.getDispatchProductDetails();
-  
 
-    // this.http.getUserDetails();
+
   }
 
 

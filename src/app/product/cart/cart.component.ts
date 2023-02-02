@@ -11,7 +11,7 @@ import { HttpService } from 'src/app/shared/service/http.service';
 })
 export class CartComponent {
 
-  public product:any=[];
+  public product:any;
   public cartViewProducts:any;
   public total!:number;
 

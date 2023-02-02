@@ -24,16 +24,10 @@ export class RegisterComponent {
       firstName:new FormControl(null,Validators.required),
       lastName:new FormControl(null,Validators.required),
       mobileNumber:new FormControl(null,Validators.required),
-      email:new FormControl(null,[Validators.required,Validators.email]),
-      password:new FormControl(null,[Validators.required,Validators.minLength(4)])
+      email:new FormControl('',[Validators.required,Validators.email]),
+      password:new FormControl('',[Validators.required,Validators.minLength(4)])
   });
 
-// public createPost(){
-//     const postData=this.registrationForm.value;
-//     this.http.post(this.cart.baseUrl+'/user',postData).subscribe(response=>{console.log(response);
-//     });
-//     this.route.navigate(['']);
-//   }
 
 public onSignup(){
   const postData=this.registrationForm.value;

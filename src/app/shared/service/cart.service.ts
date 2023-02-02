@@ -23,6 +23,8 @@ export class CartService {
       this.totalItems=result.length;
       console.log(this.addedToCart);
       console.log(this.productIds);
+      console.log(this.totalCost);
+      this.getTotalPrice();
 
     });
 
@@ -43,15 +45,13 @@ public addtoCart(product:any){
   }
 
 public getTotalPrice(){
-  return this.totalCost.reduce((a,b)=>a+b);
+  return this.totalCost.reduce((a,b)=>a+b,0);
 }
 
 public removeCartItem(product:any){
     this.cartItemList.map((currentProducts:any,index:any)=>{
       if(product.id===currentProducts.id){
         this.cartItemList.splice(index,1);
-         // this.productIds.splice(product.id,1);
-        // this.productIds.shift();
         this.removeProductId(product);
         console.log(this.productIds);
        console.log(this.totalCost);
@@ -84,12 +84,4 @@ public removeProductId(product:any){
   }
 }
 
-// public countIncrease(product:any){
-//   product.Quantity=product.Quantity+1
-
-// }
-// public countDecrease(product:any){
-//   product.Quantity=product.Quantity-1
-
-// }
 }

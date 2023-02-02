@@ -352,9 +352,36 @@
       }
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": 20,
+      "title": "Wembley Toys Talking Cactus Baby Toys for Kids Dancing Cactus Toys Can Sing Wriggle",
+      "price": 732.95,
+      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      "category": "kids clothing",
+      "Quantity": 1,
+      "image": "https://m.media-amazon.com/images/I/71ML2TRKAUL._AC_UL640_QL65_.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
+    },
+    {
+      "id": 21,
+      "title": "Benkleys Kids Dancing Cactus Toys Can Sing Wriggle",
+      "price": 3274.95,
+      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      "category": "kids clothing",
+      "Quantity": 1,
+      "image": "https://m.media-amazon.com/images/I/61wfqexl21L._AC_UL640_FMwebp_QL65_.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
+    }
+  ],
   "Orders": [
-
+    [
       {
         "id": 35,
         "title": "Fashion Basket Women's Gerogette Embroidered & Sequence Lehenga Choli(FB-LH-L8215-17_Free Size)",
@@ -367,20 +394,7 @@
           "rate": 4.6,
           "count": 400
         }
-      },
-      {
-        "id": 34,
-        "title": "Zeel Clothing Women's Organza Floral White Semi-Stitched Lehenga Choli",
-        "price": 1695,
-        "description": "Care Instructions: Machine Wash Fit Type: Slim Fit",
-        "category": "women's clothing",
-        "Quantity": 1,
-        "image": "https://m.media-amazon.com/images/I/91sxFmQks8L._UY879_.jpg",
-        "rating": {
-          "rate": 4.6,
-          "count": 400
-        }
       }
-    
+    ]
   ]
 }

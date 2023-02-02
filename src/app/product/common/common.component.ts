@@ -25,12 +25,9 @@ public addToCart(product:any){
   this.cart.productId=product.id;
   this.countIncrease(product);
   this.cart.productIds.push(product.id);
-  // this.cart.totalCost.add(product.price);
   this.cart.totalCost.push(product.price);
   this.cart.addedToCart=true;
   this.cart.addtoCart(product);
-  // this.cart.products=this.cart.products+product;
-  // localStorage.setItem('products',JSON.stringify(this.cart.products));
   this.httpClient.post(this.cart.baseUrl+'/cart',product).subscribe();
   console.log(this.http.cartProductDetails);
 }
