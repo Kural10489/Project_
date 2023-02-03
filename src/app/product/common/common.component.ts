@@ -18,6 +18,7 @@ export class CommonComponent {
   public productDetails:any;
   public productId!:number;
   public searchKey:string='';
+  public customer=localStorage.getItem('name');
 @Input() products:any;
 
 
@@ -28,7 +29,8 @@ public addToCart(product:any){
   this.cart.totalCost.push(product.price);
   this.cart.addedToCart=true;
   this.cart.addtoCart(product);
-  this.httpClient.post(this.cart.baseUrl+'/cart',product).subscribe();
+  product.username=this.customer;
+  // this.httpClient.post(this.cart.baseUrl+'/cart',product).subscribe();
   console.log(this.http.cartProductDetails);
 }
 

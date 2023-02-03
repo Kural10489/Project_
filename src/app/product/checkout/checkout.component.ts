@@ -9,9 +9,10 @@ import { HttpService } from 'src/app/shared/service/http.service';
 })
 export class CheckoutComponent {
 
-  public products=[];
+  constructor(private cart:CartService,public http:HttpService){
 
-  constructor(private cart:CartService,public http:HttpService){}
+
+  }
   ngOnInit(): void {
     this.http.getDispatchProductDetails();
 

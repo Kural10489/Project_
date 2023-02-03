@@ -1,34 +1,10 @@
 
+<br>
 
-
-<div class="container">
-  <div class="row">
-    <ng-container  *ngFor="let product of httpMethods.productDetails|filter:'Men clothing':'category'|filter:searchKey:'title'">
-    <div class="card col-md-3">
-      <img src="{{product.image}}" alt="">
-      <h5 class="productTitle">{{product.title}}</h5>
-      <p class="productDescribtion">{{product.description}}</p>
-      <p><strong>Price: </strong> {{product.price|currency:"INR"}}</p>
-<div *ngIf="product.Quantity==0 || !cart.addedToCart">
-      <button class="btn btn-warning cartbtn" (click)="addToCart(product)">Add to cart</button>
-  </div>
-      <div *ngIf="(product.Quantity>0|| cart.addedToCart) &&  product.id===cart.productId ||cart.addedToCart">
-        <br>
-               <div class="add">
-                 <button class="btn "(click)="removeCartItemCount(product)" [disabled]="product.Quantity<=0">-</button>
-                 {{product.Quantity}}
-                 <button class="btn "(click)="addToCartCount(product)"> +</button>
-               </div>
-           </div>
-
-      <br>
-      <div *ngIf="(cart.productIdCheck(product.id))" >
-        <span class="material-symbols-outlined green">
-          check_circle
-          </span> Added to Cart
-       </div>
-    </div>
-  </ng-container>
+<div class="container ">
+  <div class="row ">
+<div *ngFor="let data of httpMethods.productDetails|filter:'Men clothing':'category'|filter:searchKey:'title'" class="col-md-4" >
+  <app-common [products]="data"></app-common>
+</div>
   </div>
 </div>
-

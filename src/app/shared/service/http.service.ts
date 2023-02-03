@@ -38,7 +38,8 @@ public getProductDetais(){
    }
 
  public getDispatchProductDetails(){
-     return this.http.get<any>(`http://localhost:3000/Orders`).subscribe((result:any)=>{
+     const customer =localStorage.getItem('name');
+     return this.http.get<any>(`http://localhost:3000/OrderDetails?username=`+customer).subscribe((result:any)=>{
      this.DispatchProductsDetails=result;
      });
    }

@@ -21,17 +21,11 @@ export class CartService {
   constructor() {
     this.getProducts().subscribe(result=>{
       this.totalItems=result.length;
-      console.log(this.addedToCart);
-      console.log(this.productIds);
-      console.log(this.totalCost);
-      this.getTotalPrice();
 
     });
+    this.getTotalPrice();
 
   }
-
-  ngOnInit(): void {}
-
 
 
 public getProducts(){

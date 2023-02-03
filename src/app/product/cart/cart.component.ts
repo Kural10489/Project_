@@ -33,7 +33,7 @@ public emptyCart(){
     this.cart.removeAllCartItems();
   }
 public navigateToCheckout(){
-    const post=this.http.post(this.cart.baseUrl +"/Orders",this.product)
+    const post=this.http.post(this.cart.baseUrl +"/OrderDetails",this.product)
     post.subscribe();
     console.log(this.product);
     this.route.navigate(['checkout'])
