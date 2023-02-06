@@ -22,15 +22,15 @@
       "firstName": "Monica",
       "lastName": "Krish",
       "MobileNumber": "9003759065",
-      "Email": "moni@gmail.com",
-      "Password": "moni"
+      "email": "moni@gmail.com",
+      "password": "moni"
     },
     {
       "firstName": "kural",
       "lastName": "karthi",
       "MobileNumber": "9080724529",
-      "Email": "kural@gmail.com",
-      "Password": "kural",
+      "email": "kural@gmail.com",
+      "password": "kural",
       "id": 2,
       "Address": "c3,Kannan Nagar,Opposite to kundhavai Nachiyar College,Thanjavur-613007"
     },
@@ -65,6 +65,38 @@
       "email": "abinash@gmail.com",
       "password": "Abinash#5",
       "id": 6
+    },
+    {
+      "firstName": "pavithran",
+      "lastName": "k",
+      "mobileNumber": "6567878778",
+      "email": "pavi@gmail.com",
+      "password": "pavithran@5",
+      "id": 7
+    },
+    {
+      "firstName": "Sound",
+      "lastName": "sw",
+      "mobileNumber": "9876567655",
+      "email": "sound@gmail.com",
+      "password": "Sound#55",
+      "id": 8
+    },
+    {
+      "firstName": "sound",
+      "lastName": "sw",
+      "mobileNumber": "9876567876",
+      "email": "sound@gmail.com",
+      "password": "Sound#55",
+      "id": 9
+    },
+    {
+      "firstName": "sound",
+      "lastName": "sv",
+      "mobileNumber": "9876567877",
+      "email": "sound@gmail.com",
+      "password": "Sound#55",
+      "id": 10
     }
   ],
   "products": [
@@ -360,109 +392,29 @@
       }
     }
   ],
-  "cart": [
+  "Usernames": {},
+  "OrderDetails": [
     {
-      "id": 20,
-      "title": "Wembley Toys Talking Cactus Baby Toys for Kids Dancing Cactus Toys Can Sing Wriggle",
-      "price": 732.95,
-      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
-      "category": "kids clothing",
-      "Quantity": 1,
-      "image": "https://m.media-amazon.com/images/I/71ML2TRKAUL._AC_UL640_QL65_.jpg",
-      "rating": {
-        "rate": 4.5,
-        "count": 146
-      }
+      "id": 25,
+      "title": "London Hills Printed Men Hooded Neck Mens T-Shirt ",
+      "price": 1680,
+      "description": "Neck Type Hooded Neck Fit Loose Fabric Cotton Blend",
+      "category": "Men clothing",
+      "Quantity": 2,
+      "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
+      "rating": 3.9,
+      "username": "Moni"
     },
     {
-      "id": 21,
-      "title": "Benkleys Kids Dancing Cactus Toys Can Sing Wriggle",
-      "price": 3274.95,
-      "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
-      "category": "kids clothing",
-      "Quantity": 1,
-      "image": "https://m.media-amazon.com/images/I/61wfqexl21L._AC_UL640_FMwebp_QL65_.jpg",
-      "rating": {
-        "rate": 4.5,
-        "count": 146
-      }
+      "id": 25,
+      "title": "London Hills Printed Men Hooded Neck Mens T-Shirt ",
+      "price": 1680,
+      "description": "Neck Type Hooded Neck Fit Loose Fabric Cotton Blend",
+      "category": "Men clothing",
+      "Quantity": 2,
+      "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
+      "rating": 3.9,
+      "username": "Moni"
     }
-  ],
-  "Orders": [],
-  "OrderDetails": [
-    [
-      {
-        "id": 24,
-        "title": "Men's Stylish Hooded Graphic Printed T-Shirt (Olive Green, Black)",
-        "price": 3800,
-        "description": "Dial Color: Grey, Case Shape: Round, Case Material: PlastiC",
-        "category": "Men clothing",
-        "Quantity": 1,
-        "image": "https://m.media-amazon.com/images/I/610jF2HhdNL._UY879_.jpg",
-        "rating": 3.9,
-        "username": null
-      }
-    ],
-    [
-      {
-        "id": 25,
-        "title": "London Hills Printed Men Hooded Neck Mens T-Shirt ",
-        "price": 1680,
-        "description": "Neck Type Hooded Neck Fit Loose Fabric Cotton Blend",
-        "category": "Men clothing",
-        "Quantity": 4,
-        "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
-        "rating": 3.9,
-        "username": "kural"
-      },
-      {
-        "id": 25,
-        "title": "London Hills Printed Men Hooded Neck Mens T-Shirt ",
-        "price": 1680,
-        "description": "Neck Type Hooded Neck Fit Loose Fabric Cotton Blend",
-        "category": "Men clothing",
-        "Quantity": 4,
-        "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
-        "rating": 3.9,
-        "username": "kural"
-      },
-      {
-        "id": 25,
-        "title": "London Hills Printed Men Hooded Neck Mens T-Shirt ",
-        "price": 1680,
-        "description": "Neck Type Hooded Neck Fit Loose Fabric Cotton Blend",
-        "category": "Men clothing",
-        "Quantity": 4,
-        "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
-        "rating": 3.9,
-        "username": "kural"
-      }
-    ],
-    [
-      {
-        "id": 24,
-        "title": "Men's Stylish Hooded Graphic Printed T-Shirt (Olive Green, Black)",
-        "price": 3800,
-        "description": "Dial Color: Grey, Case Shape: Round, Case Material: PlastiC",
-        "category": "Men clothing",
-        "Quantity": 1,
-        "image": "https://m.media-amazon.com/images/I/610jF2HhdNL._UY879_.jpg",
-        "rating": 3.9,
-        "username": null
-      }
-    ],
-    [
-      {
-        "id": 24,
-        "title": "Men's Stylish Hooded Graphic Printed T-Shirt (Olive Green, Black)",
-        "price": 3800,
-        "description": "Dial Color: Grey, Case Shape: Round, Case Material: PlastiC",
-        "category": "Men clothing",
-        "Quantity": 1,
-        "image": "https://m.media-amazon.com/images/I/610jF2HhdNL._UY879_.jpg",
-        "rating": 3.9,
-        "username": null
-      }
-    ]
   ]
 }
