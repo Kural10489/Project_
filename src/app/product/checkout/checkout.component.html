@@ -1,11 +1,11 @@
 <br>
 <div class="center">
 
-<ng-container *ngIf="http.DispatchProductsDetails" id="Ngcontainer">
+<ng-container *ngIf="orderDetails" id="Ngcontainer">
   <div class="title">
     <h2 >Your orders</h2>
   </div>
-  <div class="container containerDiv" *ngFor="let product of http.DispatchProductsDetails">
+  <div class="container containerDiv" *ngFor="let product of orderDetails">
   <div class="card">
     <div class="elements">
       <h4>{{product.title}}</h4>
