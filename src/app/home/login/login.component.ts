@@ -37,8 +37,10 @@ public onLogin(){
 
    this.user.existingUserDetails().subscribe(result=>{
    const user=result.find((a:any)=>{
-    return a.Email===this.loginForm.value.email && a.Password===this.loginForm.value.password
+    return a.email===this.loginForm.value.email && a.password===this.loginForm.value.password
    })
+   console.log(user);
+
    if(user){
      localStorage.setItem('name',this.loginForm.value.text);
      localStorage.setItem('password',this.loginForm.value.password);

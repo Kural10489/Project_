@@ -18,6 +18,8 @@ export class RegisterComponent {
 
   ngOnInit():void{
     this.httpMethods.getProductDetais();
+    this.httpMethods.getUserNames();
+
   }
 
   registrationForm=this.fb.group({
@@ -31,9 +33,23 @@ export class RegisterComponent {
 
 public onSignup(){
   const postData=this.registrationForm.value;
-  this.http.post(this.cart.baseUrl+'/user',postData).subscribe(response=>{console.log(response);
+  if(this.httpMethods.userDetails.map((a:any)=>{a.firstName!==this.registrationForm.get('firstName')!.value})){
+    // this.http.post('http://localhost:3000/Usernames',this.registrationForm.get('firstName')!.value).subscribe();
+    console.log("yes");
+    this.http.post(this.cart.baseUrl+'/user',postData).subscribe();
+    alert('ok')
+  }
+  else if(this.httpMethods.userDetails.map((a:any)=>{a.firstName!==this.registrationForm.get('firstName')!.value})){
+
+    alert('Username not available');
+  }
+  else{
+  this.http.post(this.cart.baseUrl+'/user',postData).subscribe(response=>{
+    console.log(response);
+
   });
   this.route.navigate(['']);
   }
 
+}
 }
