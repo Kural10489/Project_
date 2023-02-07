@@ -11,6 +11,7 @@ import { CartComponent } from './cart/cart.component';
 import { SharedModule } from '../shared/shared.module';
 import { CommonComponent } from './common/common.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     NotfoundComponent,
     CartComponent,
     CommonComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

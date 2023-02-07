@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
 
@@ -10,7 +11,7 @@ import { HttpService } from 'src/app/shared/service/http.service';
 })
 export class CommonComponent {
   constructor(public http:HttpService,public cart:CartService,private httpClient:HttpClient
-              ){
+              ,private route:Router){
     this.productDetails=this.http.productDetails
   }
   public addedToCart:boolean=false;
@@ -56,5 +57,7 @@ public countDecrease(product:any){
 public addedToCartToggle(){
   this.cart.addedToCart=!this.cart.addedToCart;
 }
-
+public productView(id:any){
+this.route.navigateByUrl(`product-detail/${id}`);
+}
 }

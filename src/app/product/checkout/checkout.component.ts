@@ -9,6 +9,8 @@ import { HttpService } from 'src/app/shared/service/http.service';
 })
 export class CheckoutComponent {
 public orderDetails:any=[];
+public userDetails=this.http.userDetails;
+public localStoredName=localStorage.getItem('name');
   constructor(private cart:CartService,public http:HttpService){
    this.orderDetails=new Set(this.http.DispatchProductsDetails);
    console.log(this.http.DispatchProductsDetails);
@@ -17,8 +19,17 @@ public orderDetails:any=[];
   }
   ngOnInit(): void {
     this.http.getDispatchProductDetails();
+    this.userAddress();
+  }
+  userAddress(){
+    let currentUser;
+  if(this.localStoredName==this.userDetails.map((a:any)=>currentUser=a.firstName)){
+    return console.log(currentUser);
 
   }
-
+  else{
+    return console.log("not found");
+  }
+  }
 
 }

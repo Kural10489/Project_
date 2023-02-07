@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './home/homepage/homepage.component';
+import { NotfoundComponent } from './product/notfound/notfound.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomepageComponent},
+
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { KidsComponent } from './kids/kids.component';
 import { MensComponent } from './mens/mens.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { WomenComponent } from './women/women.component';
 
 const routes: Routes = [
@@ -20,6 +21,9 @@ const routes: Routes = [
   {path:'checkout',
   canActivate:[AuthenticateService],
   component:CheckoutComponent},
+  {path:'product-detail/:id',component:ProductDetailsComponent},
+  {path:'**',component:NotfoundComponent},
+
 ];
 
 @NgModule({

@@ -1,0 +1,11 @@
+.boxcontainer{
+  display: flex;
+}
+.productimage img{
+  height: 500px;
+}
+.productdetails{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

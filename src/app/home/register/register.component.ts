@@ -12,13 +12,19 @@ import { UserService } from 'src/app/shared/service/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  uniqueUsernames:any;
+  userData:any;
   constructor(private fb:FormBuilder,private http:HttpClient,public httpMethods:HttpService,
     private route:Router,private user:UserService,private cart:CartService){}
 
   ngOnInit():void{
     this.httpMethods.getProductDetais();
-    this.httpMethods.getUserNames();
+    this.httpMethods.getUserNames().subscribe( res=>this.userData=res);
+    console.log(this.userData);
+    this.httpMethods.getUserDetails();
+    console.log(this.httpMethods.userDetails);
+    this.httpMethods.userDetails.map((a:any)=>this.uniqueUsernames=a.firstName)
+    console.log(this.uniqueUsernames);
 
   }
 
@@ -27,27 +33,31 @@ export class RegisterComponent {
       lastName:new FormControl(null,Validators.required),
       mobileNumber:new FormControl(null,Validators.required),
       email:new FormControl('',[Validators.required,Validators.email]),
-      password:new FormControl('',[Validators.required,Validators.minLength(4)])
+      password:new FormControl('',[Validators.required,Validators.minLength(4)]),
+      address:new FormControl('',[Validators.required,Validators.minLength(10)]),
+
   });
 
 
 public onSignup(){
   const postData=this.registrationForm.value;
   if(this.httpMethods.userDetails.map((a:any)=>{a.firstName!==this.registrationForm.get('firstName')!.value})){
-    // this.http.post('http://localhost:3000/Usernames',this.registrationForm.get('firstName')!.value).subscribe();
     console.log("yes");
-    this.http.post(this.cart.baseUrl+'/user',postData).subscribe();
+    this.user.postRegisterationData(postData);
+    this.user.postUniqueUsernames(this.registrationForm.get('firstName')!.value);
     alert('ok')
+  this.route.navigate(['']);
   }
-  else if(this.httpMethods.userDetails.map((a:any)=>{a.firstName!==this.registrationForm.get('firstName')!.value})){
+  else if(this.httpMethods.userDetails.map((a:any)=>{a.firstName==this.registrationForm.get('firstName')!.value})){
 
     alert('Username not available');
   }
   else{
-  this.http.post(this.cart.baseUrl+'/user',postData).subscribe(response=>{
-    console.log(response);
+  // this.http.post(this.cart.baseUrl+'/user',postData).subscribe(response=>{
+  //   console.log(response);
 
-  });
+  // });
+  this.user.postRegisterationData(postData);
   this.route.navigate(['']);
   }
 

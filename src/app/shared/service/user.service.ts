@@ -9,9 +9,11 @@ export class UserService {
 
   public searchBarActivity:boolean=false;
   authenticate!:boolean;
-  
-  server='http://localhost:3000/user';
-  constructor(private cart:CartService,private http:HttpClient) { }
+  server='http://localhost:3000';
+  constructor(private cart:CartService,private http:HttpClient) {
+
+
+  }
 
 public isLogin=()=>{
   if(this.getUserName()){
@@ -23,12 +25,22 @@ public isLogin=()=>{
 }
 
 public existingUserDetails(){
+
   return this.http.get<any>(`http://localhost:3000/user`);
+
 }
 
 public userServer(){
   return this.server;
 }
+public postRegisterationData(data:any){
+  return this.http.post(this.server+'/user',data).subscribe();
+  }
+public postUniqueUsernames(data:any){
+return this.http.post(this.server+'/Usernames',data).subscribe();
+}
+// Usernames
+
 public getUserName=()=>{
   return localStorage.getItem('name');
 }

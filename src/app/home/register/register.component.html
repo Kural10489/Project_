@@ -40,7 +40,13 @@
 
         </div>
       </div>
+      <div> <br>
+        <input type="text" class="form-control" formControlName="address" placeholder="Address" type="address" >
+        <small class="text-danger" *ngIf="registrationForm.get('address')?.touched &&! registrationForm.get('address')?.dirty">Address is required</small>
+        <small class="text-danger" *ngIf="registrationForm.get('address')?.dirty&&registrationForm.get('address')?.errors?.['minlength']">Address should contain atleast 10 characters
+        </small>
 
+      </div>
   <div> <br>
   <small>By enrolling your mobile phone number, you consent to receive automated security notifications via text message from Amazon. Message and data rates may apply.</small>
   </div>

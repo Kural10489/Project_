@@ -20,7 +20,7 @@ export class CartComponent {
   ngOnInit():void{
     this.cart.getProducts().subscribe(response=>{
       this.product=response;
-      this.httpService.getCartProducts();
+      // this.httpService.getCartProducts();
       this.removeDuplicateCartView();
 
     })
@@ -33,8 +33,9 @@ public emptyCart(){
     this.cart.removeAllCartItems();
   }
 public navigateToCheckout(){
-    const post=this.http.post(this.cart.baseUrl +"/OrderDetails",this.product)
-    post.subscribe();
+    // const post=this.http.post(this.cart.baseUrl +"/OrderDetails",this.product)
+    // post.subscribe();
+    this.cart.postData(this.product);
     console.log(this.product);
     this.route.navigate(['checkout'])
   }

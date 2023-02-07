@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -18,7 +19,7 @@ export class CartService {
   public totalCost:number[]=[];
   baseUrl ="http://localhost:3000";
 
-  constructor() {
+  constructor(private http:HttpClient) {
     this.getProducts().subscribe(result=>{
       this.totalItems=result.length;
 
@@ -77,5 +78,7 @@ public removeProductId(product:any){
     this.productIds.splice(removeProductId,1);
   }
 }
-
+public postData(data:any){
+  return this.http.post(this.baseUrl +"/OrderDetails",data).subscribe();
+  }
 }
