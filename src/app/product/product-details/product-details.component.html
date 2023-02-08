@@ -1,12 +1,109 @@
 <div class="boxcontainer">
   <div class="productimage">
-    <img src="{{singleProduct.image}}" alt="">
-    
+    <img src="{{singleProduct.image}}" alt="" id="img" #imageSlide>
   </div>
   <div class="productdetails">
     <h3>{{singleProduct.title}}</h3>
     <p>{{singleProduct.description}}</p> <br>
-    <strong>Price:{{singleProduct.price}} </strong> <br>
+    <strong>Price:{{singleProduct.price|currency:'INR'}} </strong> <br>
+    <ul>
+     <li> Care Instructions: Dry Clean Only</li>
+     <li>Fit Type: Regular </li>
+     <li>Wash Care: Dry Clean Only </li>
+
+    </ul>
+    <div class="imgcontainer">
+      <img src="{{singleProduct.image}}" alt="" (mouseenter)="productImage1(singleProduct)" >
+      <img src="{{singleProduct.image2}}" alt="" (mouseenter)="productImage2(singleProduct)" >
+      <img src="{{singleProduct.image3}}" alt="" (mouseenter)="productImage3(singleProduct)">
+      <img src="{{singleProduct.image4}}" alt=""(mouseenter)="productImage4(singleProduct)">
+    </div>
+    <div class="size">
+      <div class="s"><input type="button" value="S"></div>
+      <div class="m"><input type="button" value="M"></div>
+      <div class="l"><input type="button" value="L"></div>
+      <div class="xl"><input type="button" value="XL"></div>
+    </div>
+    <span><strong href="#" class="chart">
+      <span class="material-symbols-outlined">
+        straighten
+        </span>
+      Size chart</strong></span>
+        <br>
+      <span>Quantity
+        <select name="" id="">
+          <option value="1">1</option>
+          <option value="1">2</option>
+          <option value="1">3</option>
+          <option value="1">4</option>
+          <option value="1">5</option>
+        </select>
+      </span>
+      <br>
     <button class="btn btn-dark">Add to cart</button>
   </div>
+  <div class="produtinfo">
+  <div class="offerdiv">
+
+    <marquee behavior="" direction="right">
+<span class="material-symbols-outlined">
+      trending_up
+      </span>
+      <strong>Sale</strong>
+    </marquee>
+  </div>
+
+  <div class="offers">
+
+    <div class="box1">
+    <strong>No cost Emi</strong> <br>
+    <small>No Cost EMI
+      Upto ₹190.35 EMI interest savings  </small>
+    </div>
+    <div class="box2">
+     <strong>Bank Offer</strong> <br>
+    <small>Get GST invoice and save up to 28% on business purchases.</small>
+    </div>
+    <div class="box3">
+    <strong>Patner Offer</strong> <br>
+    <small>Upto ₹224.95 discount on HSBC Bank Credit Cards</small>
+    </div>
+  </div>
+  <div class="line"></div>
+<div class="delivery">
+  <span class="material-symbols-outlined">
+    local_shipping
+    </span>
+    <span class="material-symbols-outlined">
+      payments
+    </span>
+
+    <span class="material-symbols-outlined">
+      assignment_return
+    </span>
+    <br>
+    <a href="#">Free Delivery</a>
+    <a href="#">Pay on Delivery</a>
+    <a href="#">30 days Return & Exchange</a>
+
+
+</div>
+  <div class="line"></div>
+</div>
+</div>
+<div class="recommendedProducts">
+  <div *ngFor="
+  let product of recommendedProducts|paginate
+  :{
+    itemsPerPage:6,
+    currentPage:pagination
+
+  }
+  ">
+<div>
+  {{product.id}}
+
+</div>
+</div>
+<pagination-controls (pageChange)="pagination = $event" class="float-right"></pagination-controls>
 </div>

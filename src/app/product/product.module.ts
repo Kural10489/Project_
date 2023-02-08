@@ -12,7 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CommonComponent } from './common/common.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   imports: [
     CommonModule,
     ProductRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
+
   ]
 })
 export class ProductModule { }
