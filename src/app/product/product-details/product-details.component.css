@@ -76,3 +76,70 @@
   text-decoration: none;
   align-items: center;
 }
+.recommendedProducts{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
+}
+.container img{
+  height: 100px;
+  width: 100px;
+}
+.card{
+height: 330px;
+width: 200px;
+justify-content: center;
+align-items: center;
+}
+.cardTitle{
+text-overflow: ellipsis;
+max-width: 20ch;
+}
+#pagination{
+width: 100%;
+position: relative;
+top: 20px;
+left: 500px;
+}
+.container{
+  justify-content: center;
+  align-items: center;
+}
+.card span{
+  margin: 10px;
+  background-color: rgb(255, 183, 0);
+  border-radius: 5px;
+  width: 130px;
+  text-align: center;
+  color: rgb(37, 39, 40);
+}
+ngb-rating
+{
+  color: #FFC107;
+  font-size: 50px;
+}
+.reviews{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.yourReview{
+width: 100%;
+display: flex;
+align-items: center;
+}
+.yourReview div{
+  margin: 10px 80px;
+}
+.yourReview input{
+  height: 100px;
+  width: 400px;
+}
+.yourReview button{
+  width: 150px;
+}
+.recomendedTitle{
+  margin:40px 12px 10px;
+}

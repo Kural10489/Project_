@@ -19,10 +19,13 @@
       <img src="{{singleProduct.image4}}" alt=""(mouseenter)="productImage4(singleProduct)">
     </div>
     <div class="size">
-      <div class="s"><input type="button" value="S"></div>
-      <div class="m"><input type="button" value="M"></div>
-      <div class="l"><input type="button" value="L"></div>
-      <div class="xl"><input type="button" value="XL"></div>
+      <select name="" id="size" (change)="sizeOfProduct($event)" >
+        <option type="button" value="S" >
+          <option type="button" value="M" >
+          <option type="button" value="L">
+          <option type="button" value="XL" >
+      </select>
+
     </div>
     <span><strong href="#" class="chart">
       <span class="material-symbols-outlined">
@@ -41,6 +44,7 @@
       </span>
       <br>
     <button class="btn btn-dark">Add to cart</button>
+    <br> <br>
   </div>
   <div class="produtinfo">
   <div class="offerdiv">
@@ -85,25 +89,67 @@
     <a href="#">Free Delivery</a>
     <a href="#">Pay on Delivery</a>
     <a href="#">30 days Return & Exchange</a>
+<br>
+<br>
+<div class="reviews">
+<h3>Customer reviews</h3>
+<ngb-rating [max]="5" [readonly]="true" [rate]="finalRating"></ngb-rating>
+<div *ngIf="finalRating">
+  {{finalRating}} out of 5
+  Ratings from {{ratingCount}} users
+</div>
+<div *ngIf="!finalRating">
+ <p>Be the first one to rate this product</p>
+</div>
+<br> <br>
 
+</div>
 
 </div>
   <div class="line"></div>
 </div>
 </div>
+<br>
+<div class="yourReview">
+  <div>
+    <h3>Top Reviews from India</h3>
+  </div>
+  <div>
+    <h3>Rate this Product</h3>
+    <ngb-rating [max]="5"  (click)="getRating()" [formControl]="ratingControl"></ngb-rating>
+    <h6>Write a Reivew comment</h6>
+    <input type="text" id="Customerreview">
+  <br>
+    <button type="submit" class="btn btn-dark" (click)="postingReviewComment($event)">Post</button>
+  </div>
+  </div>
+
+  <h3 class="recomendedTitle">Products related to this item</h3>
 <div class="recommendedProducts">
   <div *ngFor="
   let product of recommendedProducts|paginate
   :{
-    itemsPerPage:6,
+    itemsPerPage:5,
     currentPage:pagination
 
   }
   ">
-<div>
-  {{product.id}}
+<div class="container">
+  <div class="card">
+    <img src="{{product.image}}" alt="">
+    <small class="cardTitle">{{product.title}}</small>
+    <span>
+      50% offer
+    </span>
+    <s><small class="text-danger">Price:{{product.price|currency:"INR"}}</small></s>
+    <strong>Price:{{product.price/2|currency:"INR"}}</strong>
+  </div>
 
 </div>
 </div>
-<pagination-controls (pageChange)="pagination = $event" class="float-right"></pagination-controls>
+<div id="pagination">
+  <pagination-controls (pageChange)="pagination = $event" class="float-right" ></pagination-controls>
 </div>
+</div>
+<br>
+<br>

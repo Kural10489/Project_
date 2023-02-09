@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/shared/service/http.service';
 import { ViewChild, ElementRef} from '@angular/core';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -11,9 +12,15 @@ export class ProductDetailsComponent {
 
 products:any=[];
 singleProduct:any;
+
 recommendedProducts:any;
 pagination:number=1;
 allProducts=10
+
+ratingCount=0;
+totalRating=0;
+ratingControl=new FormControl(0);
+finalRating:any;
 @ViewChild('imageSlide') imageSlide: ElementRef | undefined;
 
 constructor(private http:HttpService, private activatedRoute:ActivatedRoute,private route:Router){
@@ -53,4 +60,20 @@ public productImage3(singleProduct:any){
 public productImage4(singleProduct:any){
     this.imageSlide?.nativeElement.setAttribute("src",singleProduct.image4)
     }
+public getRating(){
+  this.ratingCount++;
+  this.totalRating+=this.ratingControl?.value||0;
+  this.finalRating=(this.totalRating/this.ratingCount).toFixed(1);
+
+}
+public sizeOfProduct(event:any){
+let size=event.target.value;
+console.log(size);
+
+}
+public postingReviewComment(event:any){
+// let Customerreview=document.getElementById('Customerreview').textContent;
+// console.log(Customerreview);
+
+}
 }

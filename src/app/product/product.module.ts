@@ -13,7 +13,8 @@ import { CommonComponent } from './common/common.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     MensComponent,
@@ -30,7 +31,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     ProductRoutingModule,
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbModule,
+    ReactiveFormsModule
 
   ]
 })
