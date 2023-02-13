@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,37 +13,77 @@ import { HttpService } from 'src/app/shared/service/http.service';
 export class CartComponent {
 
   public product:any;
+  public singleProduct:any=[];
   public cartViewProducts:any;
   public total!:number;
 
   constructor(public cart:CartService,private route:Router,
-    private http:HttpClient, public httpService:HttpService){}
+    private http:HttpClient, public httpService:HttpService,private user:UserService){}
   ngOnInit():void{
     this.cart.getProducts().subscribe(response=>{
       this.product=response;
-      // this.httpService.getCartProducts();
       this.removeDuplicateCartView();
 
-    })
+
+    },
+    error=>console.log("oops",error))
+    this.cart.getCartData().subscribe(res=>{
+      this.singleProduct=res;
+      console.log(this.singleProduct);
+      this.cart.totalItems=this.singleProduct.length;
+
+
+    },
+    error=>console.log("oops",error))
+
   }
+
 
 public removeCartItem(item:any){
     this.cart.removeCartItem(item);
   }
-public emptyCart(){
-    this.cart.removeAllCartItems();
-  }
+
 public navigateToCheckout(){
-    // const post=this.http.post(this.cart.baseUrl +"/OrderDetails",this.product)
-    // post.subscribe();
-    this.cart.postData(this.product);
-    console.log(this.product);
+  try{
+if(this.user.isLogin()){
+    this.cart.postData(this.singleProduct).subscribe();
+    this.emptyCart();
     this.route.navigate(['checkout'])
+}
+else{
+  this.route.navigate(['login'])
+
+    }
+  }
+    catch(err){
+      console.log(err);
+    }
   }
 
 public removeDuplicateCartView(){
   this.cartViewProducts=new Set(this.product);
   console.log(this.cartViewProducts);
+}
+public deleteAllSingleProduct(data:any){
+this.cart.deleteAllSingleProduct(data.id).subscribe(error=>console.log("oops",error));
+this.singleProduct.map((currentProducts:any,index:any)=>{
+  if(data.id===currentProducts.id){
+    this.singleProduct.splice(index,1);
+
+  }
+})
+}
+public emptyCart(){
+  // this.cart.emptyCart();
+  const array=this.singleProduct.map((post:{id:any})=>post.id)
+  console.log(array);
+  this.singleProduct=[];
+  this.cart.removeAllCartItems();
+  array.forEach((id:any)=>this.deleteProduct(id));
+}
+public deleteProduct(id:any){
+   this.cart.deleteAllSingleProduct(id).subscribe(error=>console.log("oops",error)
+   );
 }
 
 }

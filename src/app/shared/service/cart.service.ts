@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, TestabilityRegistry } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
 
   public cartItemList:any=[];
+
   public productList=new BehaviorSubject<any>([]);
   public search=new BehaviorSubject<string>("");
   public totalItems!:number;
@@ -24,6 +25,7 @@ export class CartService {
       this.totalItems=result.length;
 
     });
+
     this.getTotalPrice();
 
   }
@@ -59,6 +61,7 @@ public removeCartItem(product:any){
 public removeAllCartItems(){
     this.cartItemList=[];
     this.productIds=[];
+    this.totalCost=[];
     this.productList.next(this.cartItemList);
   }
 
@@ -79,6 +82,17 @@ public removeProductId(product:any){
   }
 }
 public postData(data:any){
-  return this.http.post(this.baseUrl +"/OrderDetails",data).subscribe();
+  return this.http.post(this.baseUrl +"/OrderDetails",data);
   }
+  //After Product Detail page
+public getCartData(){
+    return this.http.get(`http://localhost:3000/cart`);
+}
+public deleteAllSingleProduct(id:any){
+return this.http.delete(`http://localhost:3000/cart/`+id);
+
+}
+public emptyCart(){
+return this.http.delete(`http://localhost:3000/cart/`+this.productIds).subscribe();
+}
 }

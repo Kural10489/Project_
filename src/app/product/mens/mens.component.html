@@ -3,8 +3,11 @@
 
 <div class="container ">
   <div class="row ">
-<div *ngFor="let data of httpMethods.productDetails|filter:'Men clothing':'category'|filter:searchKey:'title'" class="col-md-4" >
-  <app-common [products]="data"></app-common>
+<div *ngFor="let data of httpMethods.productDetails 
+|filter:'Men clothing':'category'|filter:searchKey:'title'" class="col-md-4" >
+  <app-common [products]="data" ></app-common>
+
 </div>
+
   </div>
 </div>

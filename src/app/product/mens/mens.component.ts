@@ -12,7 +12,6 @@ import { HttpService } from 'src/app/shared/service/http.service';
 export class MensComponent {
   public searchKey:string='';
 
-
   constructor(private http:HttpClient,public httpMethods:HttpService
     ,public cart:CartService,private route:Router){}
 

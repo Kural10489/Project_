@@ -20,10 +20,11 @@
     </div>
     <div class="size">
       <select name="" id="size" (change)="sizeOfProduct($event)" >
-        <option type="button" value="S" >
-          <option type="button" value="M" >
-          <option type="button" value="L">
-          <option type="button" value="XL" >
+        <option value=""> size</option>
+        <option type="button" value="S" > S
+          <option type="button" value="M" >M
+          <option type="button" value="L">L
+          <option type="button" value="XL" >XL
       </select>
 
     </div>
@@ -34,16 +35,17 @@
       Size chart</strong></span>
         <br>
       <span>Quantity
-        <select name="" id="">
+        <select name="" id="" (change)="quantityOfProduct($event)">
+          <option value="">No of Product</option>
           <option value="1">1</option>
-          <option value="1">2</option>
-          <option value="1">3</option>
-          <option value="1">4</option>
-          <option value="1">5</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
       </span>
       <br>
-    <button class="btn btn-dark">Add to cart</button>
+    <button class="btn btn-dark" (click)="addToCart(singleProduct)">Add to cart</button>
     <br> <br>
   </div>
   <div class="produtinfo">

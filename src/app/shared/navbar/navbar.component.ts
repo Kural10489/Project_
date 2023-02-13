@@ -10,8 +10,17 @@ import { UserService } from '../service/user.service';
 })
 export class NavbarComponent {
   public searchTerm:string='';
+  public  totalItems:any;
+  public singleProduct:any;
+  constructor(public cart:CartService,public route:Router,public user:UserService){
+  console.log(this.cart.totalItems);
+  this.cart.getCartData().subscribe(res=>{
+    this.singleProduct=res;
+    console.log(this.singleProduct);
+    this.cart.totalItems=this.singleProduct.length;})
+}
 
-  constructor(public cart:CartService,public route:Router,public user:UserService){}
+
 
 /*search() has a parameter event used to target the
   input value by the user and send the data to another component by
@@ -33,4 +42,5 @@ this.user.searchBarActivity=true;
 public hideSearch(){
   this.user.searchBarActivity=false;
 }
+
 }

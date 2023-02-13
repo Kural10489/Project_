@@ -8,28 +8,35 @@ import { HttpService } from 'src/app/shared/service/http.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-public orderDetails:any=[];
-public userDetails=this.http.userDetails;
+public orderDetails:any;
+public DispatchProductsDetails:any=[];
+public totalNumberOfOrders=this.DispatchProductsDetails.length;
+public userDetails:any=[];
 public localStoredName=localStorage.getItem('name');
-  constructor(private cart:CartService,public http:HttpService){
-   this.orderDetails=new Set(this.http.DispatchProductsDetails);
-   console.log(this.http.DispatchProductsDetails);
-    console.log(this.orderDetails);
+  constructor(public http:HttpService,public cart:CartService){
+
 
   }
   ngOnInit(): void {
-    this.http.getDispatchProductDetails();
-    this.userAddress();
+    this.DispatchProductsDetails=this.http.getDispatchProductDetails().subscribe(res=>this.DispatchProductsDetails=res);
+    this.http.getUserDetails().subscribe(res=>this.userDetails=res);
+   this.orderDetails=new Set(this.DispatchProductsDetails);
   }
-  userAddress(){
-    let currentUser;
-  if(this.localStoredName==this.userDetails.map((a:any)=>currentUser=a.firstName)){
-    return console.log(currentUser);
+public date(){
+  return new Date().toLocaleDateString();
+}
+public userAddress(){
+  console.log(this.userDetails.map((a:any)=>a.firstName));
+  console.log(this.localStoredName);
+  console.log(this.userDetails.map((a:any)=>a.address));
 
-  }
-  else{
-    return console.log("not found");
-  }
-  }
-
+  if(this.userDetails.map((a:any)=>a.firstName==this.localStoredName)){
+  return this.userDetails.map((a:any)=>a.address)
+}
+else{
+  return (`
+lakshmi nagar,velachery,chennai-28
+  `)
+}
+}
 }

@@ -6,7 +6,8 @@
         <p><strong>Price: </strong> {{products.price|currency:"INR"}}</p>
 
         <div *ngIf="products.Quantity==0 || !cart.addedToCart">
-          <button class="btn btn-warning cartbtn" (click)="addToCart(products)">Add to cart</button>
+          <!-- <button class="btn btn-warning cartbtn" (click)="addToCart(products)">Add to cart</button> -->
+          <button class="btn btn-warning cartbtn">View Product</button>
       </div>
 
         <div *ngIf="(products.Quantity>0|| cart.addedToCart) &&  products.id===cart.productId ||cart.addedToCart">
@@ -25,6 +26,6 @@
             </span> Added to Cart
          </div>
       </div>
-
+     
 
 

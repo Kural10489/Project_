@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/shared/service/http.service';
 import { ViewChild, ElementRef} from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CartService } from 'src/app/shared/service/cart.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -21,10 +23,20 @@ ratingCount=0;
 totalRating=0;
 ratingControl=new FormControl(0);
 finalRating:any;
+
+// Adding product to cart
+public size:any;
+public quantity:any;
+public customer=localStorage.getItem('name');
+
 @ViewChild('imageSlide') imageSlide: ElementRef | undefined;
 
-constructor(private http:HttpService, private activatedRoute:ActivatedRoute,private route:Router){
-  this.http.getpaginatedProducts(this.pagination).subscribe(res=>this.recommendedProducts=res);
+constructor(private http:HttpService,private httpClient:HttpClient, private activatedRoute:ActivatedRoute,private route:Router,private cart:CartService){
+  this.http.getpaginatedProducts(this.pagination).subscribe(res=>this.recommendedProducts=res,error=>console.log("oops",error));
+  console.log(this.cart.productIds);
+  console.log(this.cart.totalCost);
+
+
 }
 
 
@@ -43,9 +55,13 @@ this.activatedRoute.paramMap.subscribe((data:any)=>{
   if(this.products.length<=0){
     this.route.navigateByUrl('');
   }
-  this.singleProduct=this.products[0];})
+  this.singleProduct=this.products[0];
+
+  console.log(this.singleProduct);
+})
 },(error:any)=>{console.log(error);
 })
+
 }
 
 public productImage1(singleProduct:any){
@@ -68,12 +84,32 @@ public getRating(){
 }
 public sizeOfProduct(event:any){
 let size=event.target.value;
+this.size=size;
 console.log(size);
 
+}
+public quantityOfProduct(event:any){
+  let quantity=event.target.value;
+  this.quantity=quantity;
+  console.log(quantity);
 }
 public postingReviewComment(event:any){
 // let Customerreview=document.getElementById('Customerreview').textContent;
 // console.log(Customerreview);
 
 }
+public addToCart(product:any){
+  product.size=this.size||1;
+  product.quantity=this.quantity||1;
+  this.cart.totalItems++;
+  this.cart.productIds.push(product.id);
+  this.cart.totalCost.push(product.price);
+  product.username=this.customer;
+
+try{
+this.httpClient.post('http://localhost:3000/cart',product).subscribe();
+} catch(err){
+  console.log(err);
+}}
+
 }

@@ -1,13 +1,9 @@
 <br>
-<div class="center">
-
-  <!-- <ng-container *ngIf="orderDetails" id="Ngcontainer"> -->
-<!-- </ng-container> -->
-{{userAddress()}}
+<!-- <div class="center">
   <div class="title">
     <h2 >Your orders</h2>
   </div>
-  <div class="container containerDiv" *ngFor="let product of orderDetails">
+  <div class="container containerDiv" *ngFor="let product of DispatchProductsDetails">
   <div class="card">
     <div class="elements">
       <h4>{{product.title}}</h4>
@@ -40,8 +36,71 @@
 
   </div>
 </div>
+</div> -->
+
+
+<ng-container *ngIf="DispatchProductsDetails.length!=0">
+  <h2>Your Orders</h2>
+  <strong>{{totalNumberOfOrders}} Orders placed</strong>
+    <div class="card" *ngFor="let item of DispatchProductsDetails; let i=index">
+    <div class="container">
+  <div class="card-table">
+    <div class="cart-product">
+      <table class="table table-responsive" >
+        <thead>
+          <tr>
+            <th class="sno">S.no</th>
+            <th class="orderplaced">Order Placed On</th>
+            <th class="ship">Shipment to</th>
+            <th>Delivery Address</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{date()}}</td>
+            <td>{{localStoredName}}</td>
+            <td style="width: 100%;" id="address">{{userAddress()}}</td>
+            <!-- <td>
+              <button class="btn"><span class="material-symbols-outlined delete" (click)="deleteAllSingleProduct(item)">
+                delete_forever
+                </span></button>
+            </td> -->
+          </tr>
+          <tr>
+            <td><img src="{{item.image}}" alt=""></td>
+          </tr>
+          <td><small class="title">{{item.title}}</small></td>
+          <div class="btns">
+            <button class="btn ">Track package</button>
+            <button class="btn btn-warning">Get Product Support</button>
+            <button class="btn">Write a Product Review</button>
+          </div>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<br>
+</div>
+</ng-container>
+<div class="containerDiv">
+  <div class="container" *ngIf="DispatchProductsDetails.length==0">
+    <div class="card">
+      <h5 class="card-title">My orders</h5>
+    </div>
+    <div class="center">
+      <img src="https://img1a.flixcart.com/www/linchpin/checkout/prod/EmptyCart-7870c340.svg" alt="">
+      <h4>No orders placed</h4>
+      <h6>Add item to it now</h6>
+     <a href="woman"><button class="btn btn-dark">Shop now</button></a>
+    </div>
+  </div>
+</div>
+
+
+
 <br>
 <br>
 <br>
