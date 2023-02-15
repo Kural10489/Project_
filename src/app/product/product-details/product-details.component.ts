@@ -30,7 +30,7 @@ public quantity:any;
 public customer=localStorage.getItem('name');
 
 @ViewChild('imageSlide') imageSlide: ElementRef | undefined;
-
+@ViewChild('review') review: ElementRef | undefined;
 constructor(private http:HttpService,private httpClient:HttpClient, private activatedRoute:ActivatedRoute,private route:Router,private cart:CartService){
   this.http.getpaginatedProducts(this.pagination).subscribe(res=>this.recommendedProducts=res,error=>console.log("oops",error));
   console.log(this.cart.productIds);
@@ -93,9 +93,10 @@ public quantityOfProduct(event:any){
   this.quantity=quantity;
   console.log(quantity);
 }
+
 public postingReviewComment(event:any){
-// let Customerreview=document.getElementById('Customerreview').textContent;
-// console.log(Customerreview);
+let Customerreview=this.review?.nativeElement.value;
+console.log(Customerreview);
 
 }
 public addToCart(product:any){

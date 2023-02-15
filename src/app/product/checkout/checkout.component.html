@@ -40,8 +40,8 @@
 
 
 <ng-container *ngIf="DispatchProductsDetails.length!=0">
-  <h2>Your Orders</h2>
-  <strong>{{totalNumberOfOrders}} Orders placed</strong>
+  <h2 class="center">Your Orders</h2>
+  <strong class="center">{{totalNumberOfOrders}} Orders placed</strong>
     <div class="card" *ngFor="let item of DispatchProductsDetails; let i=index">
     <div class="container">
   <div class="card-table">
@@ -51,7 +51,6 @@
           <tr>
             <th class="sno">S.no</th>
             <th class="orderplaced">Order Placed On</th>
-            <th class="ship">Shipment to</th>
             <th>Delivery Address</th>
           </tr>
 
@@ -60,8 +59,8 @@
           <tr>
             <td>{{i+1}}</td>
             <td>{{date()}}</td>
-            <td>{{localStoredName}}</td>
-            <td style="width: 100%;" id="address">{{userAddress()}}</td>
+
+            <td id="address">{{userAddress()}}</td>
             <!-- <td>
               <button class="btn"><span class="material-symbols-outlined delete" (click)="deleteAllSingleProduct(item)">
                 delete_forever
@@ -72,6 +71,22 @@
             <td><img src="{{item.image}}" alt=""></td>
           </tr>
           <td><small class="title">{{item.title}}</small></td>
+          <input type="range" min="1" max="5" disabled value="2" id="range">
+          <div class="icons" id="icons">
+            <span class="material-symbols-outlined flag">
+              flag_circle
+              </span>
+            <span class="material-symbols-outlined">
+              package
+              </span>
+            <span class="material-symbols-outlined">
+              local_shipping
+              </span>
+              <span class="material-symbols-outlined">
+                verified
+                </span>
+          </div>
+
           <div class="btns">
             <button class="btn ">Track package</button>
             <button class="btn btn-warning">Get Product Support</button>

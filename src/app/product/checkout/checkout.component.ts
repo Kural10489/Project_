@@ -18,9 +18,14 @@ public localStoredName=localStorage.getItem('name');
 
   }
   ngOnInit(): void {
-    this.DispatchProductsDetails=this.http.getDispatchProductDetails().subscribe(res=>this.DispatchProductsDetails=res);
+    this.DispatchProductsDetails=this.http.getDispatchProductDetails().subscribe(
+      res=>this.DispatchProductsDetails=res.filter((a:any)=>{
+        if(this.localStoredName===a.username){
+          return a;
+        }
+      }));
     this.http.getUserDetails().subscribe(res=>this.userDetails=res);
-   this.orderDetails=new Set(this.DispatchProductsDetails);
+   this.orderDetails=this.DispatchProductsDetails.map((a:any)=> a);
   }
 public date(){
   return new Date().toLocaleDateString();
@@ -39,4 +44,5 @@ lakshmi nagar,velachery,chennai-28
   `)
 }
 }
+
 }

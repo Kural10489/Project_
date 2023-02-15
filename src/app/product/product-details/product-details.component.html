@@ -120,7 +120,7 @@
     <h3>Rate this Product</h3>
     <ngb-rating [max]="5"  (click)="getRating()" [formControl]="ratingControl"></ngb-rating>
     <h6>Write a Reivew comment</h6>
-    <input type="text" id="Customerreview">
+    <input type="text" id="Customerreview" #Customerreview>
   <br>
     <button type="submit" class="btn btn-dark" (click)="postingReviewComment($event)">Post</button>
   </div>

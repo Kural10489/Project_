@@ -50,9 +50,9 @@ public logout(){
   // this.http.delete('http://localhost:3000/Orders').subscribe();
   this.deleteAllOrders();
 
+
 }
 public deleteAllOrders(){
-  console.log(this.cart.baseUrl+'/Orders'+this.cart.productIds);
-  return this.http.delete(this.cart.baseUrl+'/Orders'+this.cart.productIds)
+
 }
 }

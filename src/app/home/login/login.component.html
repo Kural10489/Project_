@@ -23,9 +23,9 @@
     </div> <br>
     <div class="form-group">
       <label for="exampleInputPassword1" >Password</label>
-      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password" pattern="[A-Za-z0-9#&^%@*!?/]{4,}" required>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required>
       <small class="text-danger" *ngIf="loginForm.get('password')?.touched &&! loginForm.get('password')?.dirty">password is required</small>
-      <small class="text-danger" *ngIf="loginForm.get('password')?.dirty&&loginForm.get('password')?.errors?.['minlength']">Password should be atleast 4 charecters</small>
+      <small class="text-danger" *ngIf="loginForm.get('password')?.dirty&&loginForm.get('password')?.errors?.['minlength']">Password should be atleast 8 charecters</small>
 
     </div> <br>
     <button type="submit" class="btn btn-warning  text-center " id="Formbtn"

@@ -12,6 +12,8 @@
   height: 500px;
   width: 1200px;
   margin: 20px;
+  position: relative;
+  left: 100px;
 }
 .card-table{
   margin: 0;
@@ -68,12 +70,11 @@ th{
   text-align: center;
 }
 td{
-  width: 30px;
-
+  width: 300px;
 }
 .ship{
   position: relative;
-  right: 90px;
+  right: 40px;
   width: 100%;
 }
 img{
@@ -120,7 +121,7 @@ img{
 .orderplaced
 {
   position: relative;
-  right:50px;
+  right:150px;
 }
 
 .container
@@ -128,3 +129,25 @@ img{
   display: flex;
   flex-direction: column;
 }
+.center{
+  display: flex;
+  justify-content: center;
+}
+#range{
+  position: relative;
+  top: 10px;
+  right: 300px;
+  width: 400px;
+}
+#icons{
+  /* background-color: #000; */
+position: absolute;
+right: 250px;
+width: 500px;
+display: flex;
+justify-content: center;
+/* background-color: #000; */
+}
+#icons span{
+margin: 0px 40px;
+ }

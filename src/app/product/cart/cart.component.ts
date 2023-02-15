@@ -13,10 +13,10 @@ import { UserService } from 'src/app/shared/service/user.service';
 export class CartComponent {
 
   public product:any;
-  public singleProduct:any=[];
+  public singleProduct:any;
   public cartViewProducts:any;
   public total!:number;
-
+  public dispatchProducts:any;
   constructor(public cart:CartService,private route:Router,
     private http:HttpClient, public httpService:HttpService,private user:UserService){}
   ngOnInit():void{
@@ -45,8 +45,12 @@ public removeCartItem(item:any){
 
 public navigateToCheckout(){
   try{
-if(this.user.isLogin()){
-    this.cart.postData(this.singleProduct).subscribe();
+    if(this.user.isLogin()){
+  this.dispatchProducts=this.singleProduct.map((a:any)=>{
+    return this.cart.postData(a).subscribe();
+  })
+
+
     this.emptyCart();
     this.route.navigate(['checkout'])
 }
