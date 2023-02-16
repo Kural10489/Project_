@@ -20,6 +20,8 @@ export class CommonComponent {
   public productId!:number;
   public searchKey:string='';
   public customer=localStorage.getItem('name');
+  public recommendedProducts:any;
+  public pagination:number=1;
 @Input() products:any;
 
 
@@ -31,8 +33,6 @@ public addToCart(product:any){
   this.cart.addedToCart=true;
   this.cart.addtoCart(product);
   product.username=this.customer;
-  // this.httpClient.post(this.cart.baseUrl+'/cart',product).subscribe();
-  console.log(this.http.cartProductDetails);
 }
 
 public removeCartItemCount(product:any){

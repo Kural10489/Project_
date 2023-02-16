@@ -13,11 +13,7 @@ export class NavbarComponent {
   public  totalItems:any;
   public singleProduct:any;
   constructor(public cart:CartService,public route:Router,public user:UserService){
-  console.log(this.cart.totalItems);
-  this.cart.getCartData().subscribe(res=>{
-    this.singleProduct=res;
-    console.log(this.singleProduct);
-    this.cart.totalItems=this.singleProduct.length;})
+    this.getCartData();
 }
 
 
@@ -43,4 +39,12 @@ public hideSearch(){
   this.user.searchBarActivity=false;
 }
 
+private getCartData(){
+    this.cart.getCartData().subscribe(res=>{
+    this.singleProduct=res;
+    this.cart.totalItems=this.singleProduct.length;},(err:any)=>{
+      console.log('err',err);
+      this.user.navigateToNetworkError();
+    })
+}
 }

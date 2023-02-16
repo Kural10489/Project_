@@ -3,11 +3,19 @@
 
 <div class="container ">
   <div class="row ">
-<div *ngFor="let data of httpMethods.productDetails 
-|filter:'Men clothing':'category'|filter:searchKey:'title'" class="col-md-4" >
+<div *ngFor="let data of httpMethods.productDetails
+|filter:'Men clothing':'category'|filter:searchKey:'title'|paginate
+:{
+  itemsPerPage:6,
+  currentPage:pagination
+
+}" class="col-md-4" >
   <app-common [products]="data" ></app-common>
 
 </div>
 
   </div>
+</div>
+<div id="pagination">
+  <pagination-controls (pageChange)="pagination = $event" class="float-right" ></pagination-controls>
 </div>

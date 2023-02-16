@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, TestabilityRegistry } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +8,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
 
   public cartItemList:any=[];
-
   public productList=new BehaviorSubject<any>([]);
   public search=new BehaviorSubject<string>("");
   public totalItems!:number;
   public productId!:number;
   public productIds:number[]=[];
-  public products:any;
   public addedToCart:boolean=false;
-  public total=0;
   public totalCost:number[]=[];
   baseUrl ="http://localhost:3000";
 
@@ -50,8 +47,6 @@ public removeCartItem(product:any){
       if(product.id===currentProducts.id){
         this.cartItemList.splice(index,1);
         this.removeProductId(product);
-        console.log(this.productIds);
-       console.log(this.totalCost);
       this.removeProductPrice(product);
       }
     })
@@ -72,7 +67,6 @@ public removeProductPrice(product:any){
   let removePrice=this.totalCost.indexOf(product.price);
   if(removePrice>-1){
     this.totalCost.splice(removePrice,1);
-    console.log(this.totalCost);
   }
 }
 public removeProductId(product:any){
@@ -87,12 +81,16 @@ public postData(data:any){
   //After Product Detail page
 public getCartData(){
     return this.http.get(`http://localhost:3000/cart`);
-}
+  }
+
 public deleteAllSingleProduct(id:any){
 return this.http.delete(`http://localhost:3000/cart/`+id);
 
 }
 public emptyCart(){
-return this.http.delete(`http://localhost:3000/cart/`+this.productIds).subscribe();
+return this.http.delete(`http://localhost:3000/cart/`+this.productIds).subscribe((err:any)=>{
+    console.log('err',err);
+    alert('Error in Deleting products from cart');
+  });
 }
 }

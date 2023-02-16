@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,7 +14,7 @@ public DispatchProductsDetails:any=[];
 public totalNumberOfOrders=this.DispatchProductsDetails.length;
 public userDetails:any=[];
 public localStoredName=localStorage.getItem('name');
-  constructor(public http:HttpService,public cart:CartService){
+  constructor(public http:HttpService,public cart:CartService,private user:UserService){
 
 
   }
@@ -23,20 +24,23 @@ public localStoredName=localStorage.getItem('name');
         if(this.localStoredName===a.username){
           return a;
         }
-      }));
-    this.http.getUserDetails().subscribe(res=>this.userDetails=res);
-   this.orderDetails=this.DispatchProductsDetails.map((a:any)=> a);
+      }),(err:any)=>{
+        console.log('err',err);
+      this.user.navigateToNetworkError();
+
+      });
+    this.http.getUserDetails().subscribe(res=>this.userDetails=res,(err:any)=>{
+      console.log('err',err);
+      this.user.navigateToNetworkError();
+
+    });
   }
 public date(){
   return new Date().toLocaleDateString();
 }
 public userAddress(){
-  console.log(this.userDetails.map((a:any)=>a.firstName));
-  console.log(this.localStoredName);
-  console.log(this.userDetails.map((a:any)=>a.address));
-
   if(this.userDetails.map((a:any)=>a.firstName==this.localStoredName)){
-  return this.userDetails.map((a:any)=>a.address)
+  return this.userDetails.find((a:any)=>a.address).address;
 }
 else{
   return (`

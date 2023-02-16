@@ -39,17 +39,22 @@ public onLogin(){
    const user=result.find((a:any)=>{
     return a.email===this.loginForm.value.email && a.password===this.loginForm.value.password
    })
-   console.log(user);
-
    if(user){
      localStorage.setItem('name',this.loginForm.value.text);
-     localStorage.setItem('password',this.loginForm.value.password);
-     this.openPopup();
-   }
+    localStorage.setItem('password',this.loginForm.value.password);
+    this.openPopup();
+  }
    else{
-    this.errorPopup();
-   }
+     this.errorPopup();
+    }
+  },(err:any)=>{
+    console.log('err',err);
+    // alert('Error in fetching User details in login page');
+    this.user.navigateToNetworkError();
+
   });
+
+
 
 }
 public openPopup(){
@@ -79,4 +84,5 @@ public closePopup(){
   popup?.classList.remove('open-popup');
   this.route.navigate(['']);
 }
+
 }

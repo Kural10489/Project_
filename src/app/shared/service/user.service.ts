@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 
 @Injectable({
@@ -8,9 +9,11 @@ import { CartService } from './cart.service';
 export class UserService {
 
   public searchBarActivity:boolean=false;
-  authenticate!:boolean;
+  public authenticate!:boolean;
+  public networkError:boolean=false;
+
   server='http://localhost:3000';
-  constructor(private cart:CartService,private http:HttpClient) {
+  constructor(private cart:CartService,private http:HttpClient,private route:Router) {
 
 
   }
@@ -30,14 +33,20 @@ public existingUserDetails(){
 
 }
 
-public userServer(){
-  return this.server;
-}
 public postRegisterationData(data:any){
-  return this.http.post(this.server+'/user',data).subscribe();
+  return this.http.post(this.server+'/user',data).subscribe((err:any)=>{
+    console.log('err',err);
+    this.navigateToNetworkError();
+
+  });
   }
+
 public postUniqueUsernames(data:any){
-return this.http.post(this.server+'/Usernames',data).subscribe();
+return this.http.post(this.server+'/Usernames',data).subscribe((err:any)=>{
+  console.log('err',err);
+  this.navigateToNetworkError();
+
+});
 }
 // Usernames
 
@@ -47,12 +56,10 @@ public getUserName=()=>{
 public logout(){
   localStorage.clear();
   this.cart.removeAllCartItems();
-  // this.http.delete('http://localhost:3000/Orders').subscribe();
-  this.deleteAllOrders();
-
-
 }
-public deleteAllOrders(){
 
+
+public navigateToNetworkError(){
+  this.route.navigate(['networkerror'])
 }
 }

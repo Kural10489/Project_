@@ -1,5 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
 
 import { MensComponent } from './mens.component';
 
@@ -9,8 +10,8 @@ describe('MensComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MensComponent]
-
+      declarations: [ MensComponent,FilterPipe]
+      ,providers:[HttpClient,HttpHandler],
     })
     .compileComponents();
 

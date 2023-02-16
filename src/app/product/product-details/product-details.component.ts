@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/shared/service/http.service';
 import { ViewChild, ElementRef} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/shared/service/user.service';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -12,17 +14,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductDetailsComponent {
 
-products:any=[];
-singleProduct:any;
+public products:any=[];
+public singleProduct:any;
 
-recommendedProducts:any;
-pagination:number=1;
-allProducts=10
+public recommendedProducts:any;
+public pagination:number=1;
+private allProducts=10
 
-ratingCount=0;
-totalRating=0;
-ratingControl=new FormControl(0);
-finalRating:any;
+public ratingCount=0;
+public totalRating=0;
+public ratingControl=new FormControl(0);
+public finalRating:any;
 
 // Adding product to cart
 public size:any;
@@ -31,12 +33,13 @@ public customer=localStorage.getItem('name');
 
 @ViewChild('imageSlide') imageSlide: ElementRef | undefined;
 @ViewChild('review') review: ElementRef | undefined;
-constructor(private http:HttpService,private httpClient:HttpClient, private activatedRoute:ActivatedRoute,private route:Router,private cart:CartService){
-  this.http.getpaginatedProducts(this.pagination).subscribe(res=>this.recommendedProducts=res,error=>console.log("oops",error));
-  console.log(this.cart.productIds);
-  console.log(this.cart.totalCost);
 
-
+constructor(private http:HttpService,private httpClient:HttpClient, private activatedRoute:ActivatedRoute,private route:Router,
+  private cart:CartService,private user:UserService){
+  this.http.getpaginatedProducts(this.pagination).subscribe(res=>this.recommendedProducts=res,(err:any)=>{
+    console.log('err',err);
+    this.user.navigateToNetworkError();
+  });
 }
 
 
@@ -44,11 +47,11 @@ ngOnInit():void{
 let id=0;
 this.activatedRoute.paramMap.subscribe((data:any)=>{
   id=data.params.id;
-  console.log(id);
+
 
   this.http.getProducts().subscribe(res=>{
    this.products=res;
-  console.log(this.products);
+
 
 
   this.products=this.products.filter((data:any)=>data.id==id);
@@ -57,7 +60,11 @@ this.activatedRoute.paramMap.subscribe((data:any)=>{
   }
   this.singleProduct=this.products[0];
 
-  console.log(this.singleProduct);
+
+},(err:any)=>{
+  console.log('err',err);
+  this.user.navigateToNetworkError();
+
 })
 },(error:any)=>{console.log(error);
 })
@@ -85,18 +92,15 @@ public getRating(){
 public sizeOfProduct(event:any){
 let size=event.target.value;
 this.size=size;
-console.log(size);
 
 }
 public quantityOfProduct(event:any){
   let quantity=event.target.value;
   this.quantity=quantity;
-  console.log(quantity);
 }
 
 public postingReviewComment(event:any){
 let Customerreview=this.review?.nativeElement.value;
-console.log(Customerreview);
 
 }
 public addToCart(product:any){
@@ -110,7 +114,6 @@ public addToCart(product:any){
 try{
 this.httpClient.post('http://localhost:3000/cart',product).subscribe();
 } catch(err){
-  console.log(err);
 }}
 
 }

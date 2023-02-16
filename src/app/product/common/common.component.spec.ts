@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonComponent } from './common.component';
@@ -9,6 +10,7 @@ describe('CommonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CommonComponent ]
+      ,providers:[HttpClient,HttpHandler],
     })
     .compileComponents();
 

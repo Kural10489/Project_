@@ -1,48 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
   public productDetails:any=[];
   public userDetails:any;
-  public userNames:any=[];
-  // public DispatchProductsDetails:any;
   public cartProductDetails:any;
 
-   constructor(private http:HttpClient) {
+   constructor(private http:HttpClient,private route:Router,private user:UserService) {
     this.getUserDetails();
-    this.productDetails=[];
-    this.userDetails=[];
     this.getProductDetais();
     this.getDispatchProductDetails();
-    // this.getUserNames();
 
    }
 
  //getProductDetais()is to get all the products from the server
 public getProductDetais(){
-  try{
      this.http.get(`http://localhost:3000/products`).subscribe((result:any)=>{
        this.productDetails=result;
-     })
-    }
-    catch{
-      return console.log("Error in fetching products details");
-    }
+     },(err:any)=>{
+      console.log('err',err);
+      this.user.navigateToNetworkError();
+
+    })
+
+
    }
 
- public getCartProducts(){
-  try{
+ private getCartProducts(){
     return this.http.get<any>('http://localhost:3000/cart').subscribe((result:any)=>{
         this.cartProductDetails=result;
-        console.log(result);
+    },(err:any)=>{
+      console.log('err',err);
+      this.user.navigateToNetworkError();
+
     })
-  }
-    catch{
-      return console.log("Error in fetching cart details");
-    }
    }
 
  public getDispatchProductDetails(){
@@ -51,16 +46,16 @@ public getProductDetais(){
    }
 
  //getUserDetails()is to get all details of user from the server
- public getUserDetails(){
+public getUserDetails(){
      return this.http.get(`http://localhost:3000/user`);
      }
-     public getUserNames(){
-      return this.http.get(`http://localhost:3000/user`);
-  }
-  public getProducts(){
+
+public getProducts(){
     return this.http.get(`http://localhost:3000/products`);
   }
-  public getpaginatedProducts(page:number){
+
+public getpaginatedProducts(page:number){
     return this.http.get(`http://localhost:3000/products?page=${page}`);
   }
+
 }

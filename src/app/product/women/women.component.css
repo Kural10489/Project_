@@ -21,6 +21,10 @@ overflow: hidden;
 text-overflow: ellipsis;
 max-width: 100ch;
 }
+#pagination{
+  display: flex;
+  justify-content: center;
+    }
 
 .green{
   background-color: rgb(2, 11, 25);

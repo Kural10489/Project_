@@ -1,43 +1,4 @@
 <br>
-<!-- <div class="center">
-  <div class="title">
-    <h2 >Your orders</h2>
-  </div>
-  <div class="container containerDiv" *ngFor="let product of DispatchProductsDetails">
-  <div class="card">
-    <div class="elements">
-      <h4>{{product.title}}</h4>
-      <img src="{{product.image}}" alt="">
-      <p><strong>Price: </strong>{{product.price|currency:'INR'}}</p>
-      <small>{{product.description}}</small>
-      <div class="icons">
-        <span class="material-symbols-outlined flag">
-          flag_circle
-          </span>-----
-        <span class="material-symbols-outlined">
-          package
-          </span>-----
-        <span class="material-symbols-outlined">
-          local_shipping
-          </span>----
-          <span class="material-symbols-outlined">
-            verified
-            </span>
-      </div>
-      <div class="msg">
-        <strong id="order">Order Placed</strong>
-        <span>Shipped</span>
-        <span>Out for Delivery</span>
-        <span>Deliverd</span>
-      </div>
-
-
-    </div>
-
-  </div>
-</div>
-</div> -->
-
 
 <ng-container *ngIf="DispatchProductsDetails.length!=0">
   <h2 class="center">Your Orders</h2>
@@ -71,7 +32,7 @@
             <td><img src="{{item.image}}" alt=""></td>
           </tr>
           <td><small class="title">{{item.title}}</small></td>
-          <input type="range" min="1" max="5" disabled value="2" id="range">
+          <input type="range" min="1" max="4" disabled value="2" id="range">
           <div class="icons" id="icons">
             <span class="material-symbols-outlined flag">
               flag_circle
@@ -109,7 +70,7 @@
       <img src="https://img1a.flixcart.com/www/linchpin/checkout/prod/EmptyCart-7870c340.svg" alt="">
       <h4>No orders placed</h4>
       <h6>Add item to it now</h6>
-     <a href="woman"><button class="btn btn-dark">Shop now</button></a>
+     <a href="mens"><button class="btn btn-dark">Shop now</button></a>
     </div>
   </div>
 </div>

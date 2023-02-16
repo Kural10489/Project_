@@ -6,12 +6,14 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NetworkErrorComponent } from './network-error/network-error.component';
 
 @NgModule({
   declarations: [
     HomepageComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    NetworkErrorComponent
   ],
   imports: [
     CommonModule,

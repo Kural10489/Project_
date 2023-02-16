@@ -61,3 +61,9 @@ left: 80px;
 .cartbtn{
   width: 100%;
 }
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

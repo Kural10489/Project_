@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-mens',
@@ -11,9 +12,11 @@ import { HttpService } from 'src/app/shared/service/http.service';
 })
 export class MensComponent {
   public searchKey:string='';
-
+  public recommendedProducts:any;
+  public pagination:number=1;
+  private allProducts=10
   constructor(private http:HttpClient,public httpMethods:HttpService
-    ,public cart:CartService,private route:Router){}
+    ,public cart:CartService,private route:Router,private user:UserService){}
 
   ngOnInit():void{
     this.httpMethods.getProductDetais();
@@ -21,6 +24,10 @@ export class MensComponent {
 
 this.cart.search.subscribe(val=>{
   this.searchKey=val;
+},(err:any)=>{
+  console.log('err',err);
+  this.user.navigateToNetworkError();
+
 })
 
   }
