@@ -457,9 +457,49 @@
     }
   ],
   "Usernames": {},
-  "Ratings": [],
+  "Ratings": [
+    {
+      "rate": 5,
+      "comment": "Very Nice Product",
+      "customer": "kural",
+      "productid": "35",
+      "totalUsers": 1,
+      "id": 1
+    }
+  ],
   "cart": [],
   "OrderDetails": [
-   
+    {
+      "id": 25,
+      "title": "London Hills Printed Men Hooded Neck Mens T-Shirt ",
+      "price": 1680,
+      "description": "Neck Type Hooded Neck Fit Loose Fabric Cotton Blend",
+      "category": "Men clothing",
+      "Quantity": 0,
+      "image": "https://m.media-amazon.com/images/I/71zum6ACBuL._UX679_.jpg",
+      "image2": "https://m.media-amazon.com/images/I/81yljotIf-L._UX679_.jpg",
+      "image3": "https://m.media-amazon.com/images/I/81Zp0U-w+uL._UX679_.jpg",
+      "image4": "https://m.media-amazon.com/images/I/81crikjjbuL._UX679_.jpg",
+      "rating": 3.9,
+      "size": 1,
+      "quantity": 1,
+      "username": "kural"
+    },
+    {
+      "id": 24,
+      "title": "Men's Stylish Hooded Graphic Printed T-Shirt (Olive Green, Black)",
+      "price": 3800,
+      "description": "Dial Color: Grey, Case Shape: Round, Case Material: PlastiC",
+      "category": "Men clothing",
+      "Quantity": 0,
+      "image": "https://m.media-amazon.com/images/I/610jF2HhdNL._UY879_.jpg",
+      "image2": "https://m.media-amazon.com/images/I/61QWH8Gf0lL._UY879_.jpg",
+      "image3": "https://m.media-amazon.com/images/I/610jF2HhdNL._UY879_.jpg",
+      "image4": "https://m.media-amazon.com/images/I/61+5Pz0ckqL._UY879_.jpg",
+      "rating": 3.9,
+      "size": 1,
+      "quantity": 1,
+      "username": "kural"
+    }
   ]
 }
