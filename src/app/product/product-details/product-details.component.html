@@ -94,13 +94,15 @@
 <br>
 <br>
 <div class="reviews">
-<h3>Customer reviews</h3>
-<ngb-rating [max]="5" [readonly]="true" [rate]="finalRating"></ngb-rating>
-<div *ngIf="finalRating">
-  {{finalRating}} out of 5
-  Ratings from {{ratingCount}} users
+  <div *ngIf="reviews">
+  <h3>Customer reviews</h3>
+  <div *ngFor="let review of reviews" >
+    <ngb-rating [max]="5" [readonly]="true" [rate]="review.rate"></ngb-rating> <br>
+ {{review.rate}} out of 5
+  Ratings from {{review.totalUsers}} users
+  </div>
 </div>
-<div *ngIf="!finalRating">
+<div *ngIf="reviews==null">
  <p>Be the first one to rate this product</p>
 </div>
 <br> <br>
@@ -113,16 +115,29 @@
 </div>
 <br>
 <div class="yourReview">
-  <div>
-    <h3>Top Reviews from India</h3>
+  <div id="existingReview">
+    <div *ngFor="let review of reviews" >
+      <h3>Top Reviews from India</h3>
+      <br>
+      <h5> {{review.customer}}</h5>
+      <strong> Ratings: {{review.rate}}</strong>
+        <p>{{review.comment}}</p>
+    </div>
+    <div *ngIf="reviews==null">
+      <strong>No Reviews!</strong>
+      <h3>Be the First One to Review this Product</h3>
+
+    </div>
   </div>
-  <div>
+  <div *ngIf="user.isLogin()">
     <h3>Rate this Product</h3>
-    <ngb-rating [max]="5"  (click)="getRating()" [formControl]="ratingControl"></ngb-rating>
-    <h6>Write a Reivew comment</h6>
-    <input type="text" id="Customerreview" #Customerreview>
-  <br>
-    <button type="submit" class="btn btn-dark" (click)="postingReviewComment($event)">Post</button>
+    <ngb-rating [max]="5"  (click)="getRating()" [formControl]="ratingControl " [readonly]="false" #rating></ngb-rating>
+    <h6>Write a Review comment</h6>
+
+      <input type="text" id="Customerreview" #Customerreview name="review" (keyup)="fetchingUserReviewComment($event)">
+      <br>
+      <button type="submit" class="btn btn-dark" (click)="postingReviewComment()">Post</button>
+
   </div>
   </div>
 

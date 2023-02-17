@@ -93,4 +93,19 @@ return this.http.delete(`http://localhost:3000/cart/`+this.productIds).subscribe
     alert('Error in Deleting products from cart');
   });
 }
+public postCart(product:any){
+  return this.http.post(`http://localhost:3000/cart/`,product);
+}
+public reviewDetails(rate:any,comment:any,customer:any,productid:any,totalUsers:any){
+  this.http.post(`http://localhost:3000/Ratings`,{
+    'rate':rate,
+    'comment':comment,
+    'customer':customer,
+    'productid':productid,
+    'totalUsers':totalUsers
+  }).subscribe();
+}
+public getRatingDetails(){
+  return this.http.get(`http://localhost:3000/Ratings`);
+}
 }

@@ -25,7 +25,9 @@ public ratingCount=0;
 public totalRating=0;
 public ratingControl=new FormControl(0);
 public finalRating:any;
-
+public userReviewComment:string='';
+public reviews:any;
+public productid!:number;
 // Adding product to cart
 public size:any;
 public quantity:any;
@@ -33,9 +35,10 @@ public customer=localStorage.getItem('name');
 
 @ViewChild('imageSlide') imageSlide: ElementRef | undefined;
 @ViewChild('review') review: ElementRef | undefined;
+@ViewChild('rating') rating: ElementRef | undefined;
 
 constructor(private http:HttpService,private httpClient:HttpClient, private activatedRoute:ActivatedRoute,private route:Router,
-  private cart:CartService,private user:UserService){
+  private cart:CartService,public user:UserService){
   this.http.getpaginatedProducts(this.pagination).subscribe(res=>this.recommendedProducts=res,(err:any)=>{
     console.log('err',err);
     this.user.navigateToNetworkError();
@@ -47,7 +50,7 @@ ngOnInit():void{
 let id=0;
 this.activatedRoute.paramMap.subscribe((data:any)=>{
   id=data.params.id;
-
+  this.productid=id;
 
   this.http.getProducts().subscribe(res=>{
    this.products=res;
@@ -68,7 +71,7 @@ this.activatedRoute.paramMap.subscribe((data:any)=>{
 })
 },(error:any)=>{console.log(error);
 })
-
+this.fetchReviews();
 }
 
 public productImage1(singleProduct:any){
@@ -99,10 +102,14 @@ public quantityOfProduct(event:any){
   this.quantity=quantity;
 }
 
-public postingReviewComment(event:any){
-let Customerreview=this.review?.nativeElement.value;
-
+public postingReviewComment(){
+  this.reviewDetails()
+  this.ngOnInit();
 }
+public fetchingUserReviewComment(event:any){
+this.userReviewComment=(event.target as HTMLInputElement).value;
+}
+
 public addToCart(product:any){
   product.size=this.size||1;
   product.quantity=this.quantity||1;
@@ -112,8 +119,20 @@ public addToCart(product:any){
   product.username=this.customer;
 
 try{
-this.httpClient.post('http://localhost:3000/cart',product).subscribe();
+this.cart.postCart(product).subscribe();
 } catch(err){
+  this.user.navigateToNetworkError();
 }}
 
+public reviewDetails(){
+  this.cart.reviewDetails(this.totalRating,this.userReviewComment,this.customer,this.productid,this.ratingCount);
+}
+public fetchReviews(){
+  this.cart.getRatingDetails().subscribe(res=>{
+    this.reviews=res
+    this.reviews=this.reviews.filter((data:any)=>data.productid==this.productid);
+    console.log(this.reviews);
+
+  })
+}
 }

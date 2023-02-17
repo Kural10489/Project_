@@ -130,6 +130,11 @@ width: 100%;
 display: flex;
 align-items: center;
 }
+#existingReview{
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+}
 .yourReview div{
   margin: 10px 80px;
 }
