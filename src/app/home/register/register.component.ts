@@ -20,7 +20,7 @@ export class RegisterComponent {
   ngOnInit():void{
     this.httpMethods.getProductDetais();
     this.httpMethods.getUserDetails();
-    this.httpMethods.userDetails.map((a:any)=>this.uniqueUsernames=a.firstName)
+    this.httpMethods.userDetails?.map((a:any)=>this.uniqueUsernames=a.firstName)
   }
 
   registrationForm=this.fb.group({
@@ -36,20 +36,12 @@ export class RegisterComponent {
 
 public onSignup(){
   const postData=this.registrationForm.value;
-  if(this.httpMethods.userDetails.map((a:any)=>{a.firstName!==this.registrationForm.get('firstName')!.value})){
     this.user.postRegisterationData(postData);
+    localStorage.setItem('name',`${this.registrationForm.get('firstName')!.value}`);
     this.user.postUniqueUsernames(this.registrationForm.get('firstName')!.value);
     console.log(this.registrationForm.get('firstName')!.value);
 
     this.route.navigate(['']);
-  }
-  else if(this.httpMethods.userDetails.map((a:any)=>{a.firstName==this.registrationForm.get('firstName')!.value})){
-    alert('Username not available');
-  }
-  else{
-  this.user.postRegisterationData(postData);
-  this.route.navigate(['']);
-  }
 
 }
 }

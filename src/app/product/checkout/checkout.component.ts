@@ -19,16 +19,16 @@ public localStoredName=localStorage.getItem('name');
 
   }
   ngOnInit(): void {
-    this.DispatchProductsDetails=this.http.getDispatchProductDetails().subscribe(
-      res=>this.DispatchProductsDetails=res.filter((a:any)=>{
+    this.http.getDispatchProductDetails().subscribe({
+      next:(res)=>this.DispatchProductsDetails=res.filter((a:any)=>{
         if(this.localStoredName===a.username){
           return a;
         }
-      }),(err:any)=>{
+      }),error:(err:any)=>{
         console.log('err',err);
       this.user.navigateToNetworkError();
 
-      });
+      }});
     this.http.getUserDetails().subscribe(res=>this.userDetails=res,(err:any)=>{
       console.log('err',err);
       this.user.navigateToNetworkError();

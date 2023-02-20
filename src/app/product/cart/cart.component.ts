@@ -13,7 +13,7 @@ import { UserService } from 'src/app/shared/service/user.service';
 export class CartComponent {
 
   public product:any;
-  public singleProduct:any;
+  public singleProduct:any=[];
   public cartViewProducts:any;
   public total!:number;
   public dispatchProducts:any;
@@ -23,33 +23,27 @@ export class CartComponent {
 
 
   ngOnInit():void{
-    this.cart.getProducts().subscribe(response=>{
+    this.cart.getProducts().subscribe({next:(response)=>{
       this.product=response;
       this.removeDuplicateCartView();
     },
-    (err:any)=>{
-      console.log('err',err);
+   error:(err)=>{
       this.user.navigateToNetworkError();
-    })
-    this.cart.getCartData().subscribe(res=>{
+    }})
+    this.cart.getCartData().subscribe({
+      next:res=>{
       this.singleProduct=res;
-      this.cart.totalItems=this.singleProduct.length;
-    }
-    ,(err:any)=>{
+    },
+  error:(err:any)=>{
       console.log('err',err);
       this.user.navigateToNetworkError();
 
-    })
+    }})
 
   }
 
-
-public removeCartItem(item:any){
-    this.cart.removeCartItem(item);
-  }
 
 public navigateToCheckout(){
-  try{
     if(this.user.isLogin()){
   this.dispatchProducts=this.singleProduct.map((a:any)=>{
     return this.cart.postData(a).subscribe((err:any)=>{
@@ -58,17 +52,12 @@ public navigateToCheckout(){
     });
   })
 
-
     this.emptyCart();
-    this.route.navigate(['checkout'])
+    this.route.navigate(['Orders'])
 }
 else{
   this.route.navigate(['login'])
 
-    }
-  }
-    catch(err){
-      console.log(err);
     }
   }
 

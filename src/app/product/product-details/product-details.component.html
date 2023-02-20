@@ -129,16 +129,6 @@
 
     </div>
   </div>
-  <div *ngIf="user.isLogin()">
-    <h3>Rate this Product</h3>
-    <ngb-rating [max]="5"  (click)="getRating()" [formControl]="ratingControl " [readonly]="false" #rating></ngb-rating>
-    <h6>Write a Review comment</h6>
-
-      <input type="text" id="Customerreview" #Customerreview name="review" (keyup)="fetchingUserReviewComment($event)">
-      <br>
-      <button type="submit" class="btn btn-dark" (click)="postingReviewComment()">Post</button>
-
-  </div>
   </div>
 
   <h3 class="recomendedTitle">Products related to this item</h3>

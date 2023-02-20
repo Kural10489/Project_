@@ -41,7 +41,6 @@ public onLogin(){
    })
    if(user){
      localStorage.setItem('name',this.loginForm.value.text);
-    localStorage.setItem('password',this.loginForm.value.password);
     this.openPopup();
   }
    else{
@@ -49,7 +48,6 @@ public onLogin(){
     }
   },(err:any)=>{
     console.log('err',err);
-    // alert('Error in fetching User details in login page');
     this.user.navigateToNetworkError();
 
   });

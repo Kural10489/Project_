@@ -13,7 +13,7 @@
       <ng-container *ngIf="user.getUserName()">
         <span class="user">Hello,{{user.getUserName()}}</span>
       </ng-container>
-     <a href="/checkout" id="orders"><div class="return">Orders</div></a>
+     <a href="/orders" id="orders"><div class="return">Orders</div></a>
 
       <span class="material-symbols-outlined" (click)="navigateToCart()">shopping_cart</span>
       Cart
@@ -40,12 +40,7 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="kids" (click)="showSearch()">Kids</a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link" routerLink="Gifts" (click)="hideSearch()">Gift Cards</a>
-    </li>
-    <li>
-      <a routerLink="greatDeals" class=" nav-link d-flex" (click)="hideSearch()">Shop great deals now</a>
-    </li> -->
+
   </ul>
 </nav>
 

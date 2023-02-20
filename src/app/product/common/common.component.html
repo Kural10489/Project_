@@ -1,6 +1,6 @@
 
       <div class="card " (click)="productView(products.id)">
-        <img [src]="products.image" alt="">
+        <img src="{{products.image}}" alt="image">
         <h5 class="productTitle">{{products.title}}</h5>
         <p class="productDescribtion">{{products.description}}</p>
         <p><strong>Price: </strong> {{products.price|currency:"INR"}}</p>
@@ -10,14 +10,7 @@
           <button class="btn btn-warning cartbtn">View Product</button>
       </div>
 
-        <div *ngIf="(products.Quantity>0|| cart.addedToCart) &&  products.id===cart.productId ||cart.addedToCart">
-          <br>
-                 <div class="add">
-                   <button class="btn "(click)="removeCartItemCount(products)" [disabled]="products.Quantity<=0">-</button>
-                   {{products.Quantity}}
-                   <button class="btn "(click)="addToCartCount(products)"> +</button>
-                 </div>
-             </div>
+
 
         <br>
         <div *ngIf="(cart.productIdCheck(products.id))" >

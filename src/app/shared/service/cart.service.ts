@@ -16,7 +16,7 @@ export class CartService {
   public addedToCart:boolean=false;
   public totalCost:number[]=[];
   baseUrl ="http://localhost:3000";
-
+  cartUrl=`http://localhost:3000/cart`;
   constructor(private http:HttpClient) {
     this.getProducts().subscribe(result=>{
       this.totalItems=result.length;
@@ -42,17 +42,6 @@ public getTotalPrice(){
   return this.totalCost.reduce((a,b)=>a+b,0);
 }
 
-public removeCartItem(product:any){
-    this.cartItemList.map((currentProducts:any,index:any)=>{
-      if(product.id===currentProducts.id){
-        this.cartItemList.splice(index,1);
-        this.removeProductId(product);
-      this.removeProductPrice(product);
-      }
-    })
-    this.productList.next(this.cartItemList);
-  }
-
 public removeAllCartItems(){
     this.cartItemList=[];
     this.productIds=[];
@@ -63,49 +52,22 @@ public removeAllCartItems(){
 public productIdCheck(productId:any){
 return this.productIds.find((a)=>a===productId)
 }
-public removeProductPrice(product:any){
-  let removePrice=this.totalCost.indexOf(product.price);
-  if(removePrice>-1){
-    this.totalCost.splice(removePrice,1);
-  }
-}
-public removeProductId(product:any){
-  let removeProductId=this.productIds.indexOf(product.id);
-  if(removeProductId>-1){
-    this.productIds.splice(removeProductId,1);
-  }
-}
+
 public postData(data:any){
   return this.http.post(this.baseUrl +"/OrderDetails",data);
   }
   //After Product Detail page
 public getCartData(){
-    return this.http.get(`http://localhost:3000/cart`);
+    return this.http.get(this.cartUrl);
   }
 
 public deleteAllSingleProduct(id:any){
-return this.http.delete(`http://localhost:3000/cart/`+id);
+return this.http.delete(this.cartUrl+`/`+id);
 
 }
-public emptyCart(){
-return this.http.delete(`http://localhost:3000/cart/`+this.productIds).subscribe((err:any)=>{
-    console.log('err',err);
-    alert('Error in Deleting products from cart');
-  });
-}
+
 public postCart(product:any){
-  return this.http.post(`http://localhost:3000/cart/`,product);
+  return this.http.post(this.cartUrl+`/`,product);
 }
-public reviewDetails(rate:any,comment:any,customer:any,productid:any,totalUsers:any){
-  this.http.post(`http://localhost:3000/Ratings`,{
-    'rate':rate,
-    'comment':comment,
-    'customer':customer,
-    'productid':productid,
-    'totalUsers':totalUsers
-  }).subscribe();
-}
-public getRatingDetails(){
-  return this.http.get(`http://localhost:3000/Ratings`);
-}
+
 }

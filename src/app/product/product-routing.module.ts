@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'Gifts',component:ComingsoonComponent},
   {path:'soon',component:ComingsoonComponent},
   {path:'cart',component:CartComponent},
-  {path:'checkout',
+  {path:'orders',
   canActivate:[AuthenticateService],
   component:CheckoutComponent},
   {path:'product-detail/:id',component:ProductDetailsComponent},

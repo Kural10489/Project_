@@ -35,11 +35,7 @@ public addToCart(product:any){
   product.username=this.customer;
 }
 
-public removeCartItemCount(product:any){
-  this.cart.removeCartItem(product);
-  this.addedToCartToggle();
-  this.countDecrease(product);
-}
+
 public addToCartCount(product:any){
   this.cart.addtoCart(product);
   this.cart.totalCost.push(product.price);
