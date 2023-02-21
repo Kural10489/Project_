@@ -19,7 +19,6 @@ export class LoginComponent {
 
   constructor(private http:HttpClient,private httpMethod:HttpService,private form:FormBuilder,private route:Router
     ,private user:UserService){
-    this.text=[];
     this.email=[];
     this.password=[];
   }
@@ -28,14 +27,15 @@ export class LoginComponent {
     this.loginForm=this.form.group({
       email:new FormControl ('',Validators.email),
       password:new FormControl('',Validators.minLength(4)),
-      text:new FormControl ('',Validators.minLength(4))
+      // text:new FormControl ('',Validators.minLength(4))
     })
 
 }
 
 public onLogin(){
 
-   this.user.existingUserDetails().subscribe(result=>{
+   this.user.existingUserDetails().subscribe({
+    next:(result)=>{
    const user=result.find((a:any)=>{
     return a.email===this.loginForm.value.email && a.password===this.loginForm.value.password
    })
@@ -46,11 +46,11 @@ public onLogin(){
    else{
      this.errorPopup();
     }
-  },(err:any)=>{
+  },error:(err:any)=>{
     console.log('err',err);
     this.user.navigateToNetworkError();
 
-  });
+  }});
 
 
 

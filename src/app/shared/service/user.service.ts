@@ -11,8 +11,9 @@ export class UserService {
   public searchBarActivity:boolean=false;
   public authenticate!:boolean;
   public networkError:boolean=false;
+  private server='http://localhost:3000';
+  private userUrl=`http://localhost:3000/user`;
 
-  server='http://localhost:3000';
   constructor(private cart:CartService,private http:HttpClient,private route:Router) {
 
 
@@ -29,7 +30,7 @@ public isLogin=()=>{
 
 public existingUserDetails(){
 
-  return this.http.get<any>(`http://localhost:3000/user`);
+  return this.http.get<any>(`${this.userUrl}`);
 
 }
 
