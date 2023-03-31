@@ -26,7 +26,7 @@ this.cart.search.subscribe(val=>{
   this.searchKey=val;
 },(err:any)=>{
   console.log('err',err);
-  this.user.navigateToNetworkError();
+  // this.user.navigateToNetworkError();
 
 })
 

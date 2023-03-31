@@ -9,7 +9,7 @@
 
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email " required
+          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter Email " required
           [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched "
           >
           <small class="text-danger" *ngIf="loginForm.get('email')?.touched &&! loginForm.get('email')?.dirty">Email Id is required</small>
@@ -17,7 +17,7 @@
     </div> <br>
     <div class="form-group">
       <label for="exampleInputPassword1" >Password</label>
-      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required>
       <small class="text-danger" *ngIf="loginForm.get('password')?.touched &&! loginForm.get('password')?.dirty">password is required</small>
       <small class="text-danger" *ngIf="loginForm.get('password')?.dirty&&loginForm.get('password')?.errors?.['minlength']">Password should be atleast 8 charecters</small>
 

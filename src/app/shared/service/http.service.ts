@@ -26,13 +26,13 @@ export class HttpService {
 
   //getProductDetais()is to get all the products from the server
   public getProductDetais() {
-    this.http.get(this.productUrl).subscribe(
+    this.http.get(this.baseUrl+"products").subscribe(
       (result: any) => {
         this.productDetails = result;
       },
       (err: any) => {
         console.log('err', err);
-        this.user.navigateToNetworkError();
+        // this.user.navigateToNetworkError();
       }
     );
   }
@@ -44,7 +44,7 @@ export class HttpService {
       },
       (err: any) => {
         console.log('err', err);
-        this.user.navigateToNetworkError();
+        // this.user.navigateToNetworkError();
       }
     );
   }

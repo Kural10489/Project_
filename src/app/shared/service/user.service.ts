@@ -12,7 +12,6 @@ export class UserService {
   public authenticate!:boolean;
   public networkError:boolean=false;
   private server='http://localhost:3000';
-  private userUrl=`http://localhost:3000/user`;
 
   constructor(private cart:CartService,private http:HttpClient,private route:Router) {
 
@@ -30,14 +29,19 @@ public isLogin=()=>{
 
 public existingUserDetails(){
 
-  return this.http.get<any>(`${this.userUrl}`);
+  return this.http.get<any>(`${this.server}`+'/user');
 
+}
+public loginDetails(data:any){
+  return this.http.post(this.server+'/user',data).subscribe((err:any)=>{
+    console.log('err',err);
+  });
 }
 
 public postRegisterationData(data:any){
-  return this.http.post(this.server+'/user',data).subscribe((err:any)=>{
+  return this.http.post(this.server+'/register',data).subscribe((err:any)=>{
     console.log('err',err);
-    this.navigateToNetworkError();
+    // this.navigateToNetworkError();
 
   });
   }
@@ -45,7 +49,7 @@ public postRegisterationData(data:any){
 public postUniqueUsernames(data:any){
 return this.http.post(this.server+'/Usernames',data).subscribe((err:any)=>{
   console.log('err',err);
-  this.navigateToNetworkError();
+  // this.navigateToNetworkError();
 
 });
 }
@@ -60,7 +64,7 @@ public logout(){
 }
 
 
-public navigateToNetworkError(){
-  this.route.navigate(['networkerror'])
-}
+// public navigateToNetworkError(){
+//   this.route.navigate(['networkerror'])
+// }
 }

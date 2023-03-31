@@ -5,24 +5,24 @@
       <h3 class="fluid-container">Register</h3>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" formControlName="firstName" placeholder="First name" required>
+          <input type="text" class="form-control" formControlName="firstName" placeholder="First name" name="firstName" required>
           <small class="text-danger" *ngIf="registrationForm.get('firstName')?.invalid &&registrationForm.get('firstName')?.touched">First name is mandatory</small>
       </div>
 
       <div class="col">
-        <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
+        <input type="text" class="form-control" formControlName="lastName" name="lastName" placeholder="Last name">
         <small class="help-text" *ngIf="registrationForm.get('lastName')?.invalid &&registrationForm.get('lastName')?.touched"></small>
 
       </div> <br>
 
       <div> <br>
-        <input type="text" class="form-control" formControlName="mobileNumber" placeholder="Mobile Number" type="number" pattern="[0-9]{10}">
+        <input type="text" class="form-control" formControlName="mobileNumber" name="mobileNumber" placeholder="Mobile Number" type="number" pattern="[0-9]{10}">
         <small class="text-danger" *ngIf="registrationForm.get('mobileNumber')?.touched &&! registrationForm.get('mobileNumber')?.dirty"> Mobile Number is Required</small>
         <small class="text-danger" *ngIf="registrationForm.get('mobileNumber')?.invalid && registrationForm.get('mobileNumber')?.dirty">Mobile Number must be 10 digits</small>
 
 
         <div> <br>
-          <input type="text" class="form-control" formControlName="email" placeholder="Email" type="email" required>
+          <input type="text" class="form-control" formControlName="email" placeholder="Email" name="email" type="email" required>
           <small class="help-text" *ngIf="registrationForm.get('email')?.touched &&! registrationForm.get('email')?.dirty  " class="text-danger"> Email is required</small>
           <small class="text-danger" *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.errors?.['email']">Email Must Start with A-z and should have @</small>
 
@@ -30,7 +30,7 @@
 
 
         <div> <br>
-          <input type="text" class="form-control" formControlName="password" placeholder="Password" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
+          <input type="text" class="form-control" formControlName="password" placeholder="Password" name="password" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
           <small class="text-danger" *ngIf="registrationForm.get('password')?.touched &&! registrationForm.get('password')?.dirty">Password is required</small>
           <small class="text-danger" *ngIf="registrationForm.get('password')?.dirty&&registrationForm.get('password')?.errors?.['minlength']">Password should contain
             <br>Minimum eight characters, at least one letter,
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div> <br>
-        <input type="text" class="form-control" formControlName="address" placeholder="Address" type="address" >
+        <input type="text" class="form-control" formControlName="address" placeholder="Address" name="address" type="address" >
         <small class="text-danger" *ngIf="registrationForm.get('address')?.touched &&! registrationForm.get('address')?.dirty">Address is required</small>
         <small class="text-danger" *ngIf="registrationForm.get('address')?.dirty&&registrationForm.get('address')?.errors?.['minlength']">Address should contain atleast 10 characters
         </small>

@@ -58,7 +58,7 @@ public postData(data:any){
   }
   //After Product Detail page
 public getCartData(){
-    return this.http.get(this.cartUrl);
+    return this.http.get(this.baseUrl+'/cart');
   }
 
 public deleteAllSingleProduct(id:any){
@@ -67,7 +67,7 @@ return this.http.delete(this.cartUrl+`/`+id);
 }
 
 public postCart(product:any){
-  return this.http.post(this.cartUrl+`/`,product);
+  return this.http.post(this.baseUrl+'/cart',product);
 }
 
 }

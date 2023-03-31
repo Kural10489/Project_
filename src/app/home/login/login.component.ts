@@ -27,28 +27,35 @@ export class LoginComponent {
     this.loginForm=this.form.group({
       email:new FormControl ('',Validators.email),
       password:new FormControl('',Validators.minLength(4)),
-      // text:new FormControl ('',Validators.minLength(4))
+
     })
+
+
 
 }
 
 public onLogin(){
-
+  const loginData={
+    email:this.loginForm.value.email,
+    password:this.loginForm.value.password
+  }
+   this.user.loginDetails(loginData)
    this.user.existingUserDetails().subscribe({
     next:(result)=>{
    const user=result.find((a:any)=>{
+    this.username=a.firstName;
     return a.email===this.loginForm.value.email && a.password===this.loginForm.value.password
-   })
-   if(user){
-     localStorage.setItem('name',this.loginForm.value.text);
-    this.openPopup();
-  }
-   else{
-     this.errorPopup();
+  })
+    if(user){
+      localStorage.setItem('name',this.username);
+      this.openPopup();
+    }
+    else{
+      this.errorPopup();
     }
   },error:(err:any)=>{
     console.log('err',err);
-    this.user.navigateToNetworkError();
+    // this.user.navigateToNetworkError();
 
   }});
 

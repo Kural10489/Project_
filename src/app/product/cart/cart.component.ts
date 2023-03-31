@@ -28,7 +28,7 @@ export class CartComponent {
       this.removeDuplicateCartView();
     },
    error:(err)=>{
-      this.user.navigateToNetworkError();
+      // this.user.navigateToNetworkError();
     }})
     this.cart.getCartData().subscribe({
       next:res=>{
@@ -36,7 +36,7 @@ export class CartComponent {
     },
   error:(err:any)=>{
       console.log('err',err);
-      this.user.navigateToNetworkError();
+      // this.user.navigateToNetworkError();
 
     }})
 
@@ -67,7 +67,7 @@ public removeDuplicateCartView(){
 
 
 public deleteAllSingleProduct(data:any){
-this.cart.deleteAllSingleProduct(data.id).subscribe(error=>console.log("oops",error));
+this.cart.deleteAllSingleProduct(data._id).subscribe(error=>console.log("oops",error));
 this.singleProduct.map((currentProducts:any,index:any)=>{
   if(data.id===currentProducts.id){
     this.singleProduct.splice(index,1);
@@ -78,7 +78,7 @@ this.singleProduct.map((currentProducts:any,index:any)=>{
 
 
 public emptyCart(){
-  const array=this.singleProduct.map((post:{id:any})=>post.id)
+  const array=this.singleProduct.map((post:{_id:any})=>post._id)
   this.singleProduct=[];
   this.cart.removeAllCartItems();
   array.forEach((id:any)=>this.deleteProduct(id));

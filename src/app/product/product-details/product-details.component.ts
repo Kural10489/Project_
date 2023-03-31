@@ -47,9 +47,9 @@ export class ProductDetailsComponent {
     this.http.getpaginatedProducts(this.pagination).subscribe({
       next: (res) => (this.recommendedProducts = res),
       error: (err: any) =>
-        // console.log('err',err);
-        this.user.navigateToNetworkError(),
-    });
+        console.log('err',err)
+        // this.user.navigateToNetworkError(),
+  });
   }
 
   ngOnInit(): void {
@@ -69,13 +69,13 @@ export class ProductDetailsComponent {
           },
           error: (err: any) => {
             console.log('err', err);
-            this.user.navigateToNetworkError();
+            // this.user.navigateToNetworkError();
           },
         })
 
       },error: (err: any) => {
         console.log('err', err);
-        this.user.navigateToNetworkError();
+        // this.user.navigateToNetworkError();
       },
     });
   }
@@ -115,7 +115,7 @@ export class ProductDetailsComponent {
     product.username = this.customer;
     this.cart.postCart(product).subscribe({
       error: (err) => {
-        this.user.navigateToNetworkError();
+        // this.user.navigateToNetworkError();
       },
     });
   }

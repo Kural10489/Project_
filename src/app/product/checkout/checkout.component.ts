@@ -26,12 +26,12 @@ public localStoredName=localStorage.getItem('name');
         }
       }),error:(err:any)=>{
         console.log('err',err);
-      this.user.navigateToNetworkError();
+      // this.user.navigateToNetworkError();
 
       }});
     this.http.getUserDetails().subscribe(res=>this.userDetails=res,(err:any)=>{
       console.log('err',err);
-      this.user.navigateToNetworkError();
+      // this.user.navigateToNetworkError();
 
     });
   }

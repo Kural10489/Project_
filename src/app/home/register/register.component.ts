@@ -37,7 +37,6 @@ export class RegisterComponent {
 public onSignup(){
   const postData=this.registrationForm.value;
     this.user.postRegisterationData(postData);
-    localStorage.setItem('name',`${this.registrationForm.get('firstName')!.value}`);
     this.user.postUniqueUsernames(this.registrationForm.get('firstName')!.value);
     console.log(this.registrationForm.get('firstName')!.value);
 

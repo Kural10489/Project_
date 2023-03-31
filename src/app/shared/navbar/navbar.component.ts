@@ -44,7 +44,7 @@ private getCartData(){
     this.singleProduct=res;
     this.cart.totalItems=this.singleProduct.length;},(err:any)=>{
       console.log('err',err);
-      this.user.navigateToNetworkError();
+      // this.user.navigateToNetworkError();
     })
 }
 }

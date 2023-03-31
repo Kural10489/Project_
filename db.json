@@ -485,7 +485,27 @@
       "id": 1
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": 35,
+      "title": "Fashion Basket Women's Gerogette Embroidered & Sequence Lehenga Choli(FB-LH-L8215-17_Free Size)",
+      "price": 1695,
+      "description": "Care Instructions: Machine Wash Fit Type: Slim Fit",
+      "category": "women's clothing",
+      "Quantity": 0,
+      "image": "https://m.media-amazon.com/images/I/71sEkxWsIaL._UY879_.jpg",
+      "image2": "https://m.media-amazon.com/images/I/71OMWxFVPlL._UY879_.jpg",
+      "image3": "https://m.media-amazon.com/images/I/91THDi5KoOL._UY879_.jpg",
+      "image4": "https://m.media-amazon.com/images/I/817FHREWOfL._UY879_.jpg",
+      "rating": {
+        "rate": 4.6,
+        "count": 400
+      },
+      "size": "M",
+      "quantity": "3",
+      "username": null
+    }
+  ],
   "OrderDetails": [
     {
       "id": 25,

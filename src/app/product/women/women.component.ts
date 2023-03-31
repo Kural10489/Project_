@@ -27,7 +27,7 @@ export class WomenComponent {
       this.searchKey=val;
     },(err:any)=>{
       console.log('err',err);
-      this.user.navigateToNetworkError();
+      // this.user.navigateToNetworkError();
 
     })
 
