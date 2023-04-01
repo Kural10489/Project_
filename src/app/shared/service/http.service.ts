@@ -52,7 +52,7 @@ export class HttpService {
   public getDispatchProductDetails() {
     const customer = localStorage.getItem('name');
     return this.http.get<any>(
-      `${this.baseUrl}OrderDetails?username=` + customer
+      `${this.baseUrl}/OrderDetails?username=` + customer
     );
   }
 

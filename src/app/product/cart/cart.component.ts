@@ -48,12 +48,11 @@ public navigateToCheckout(){
   this.dispatchProducts=this.singleProduct.map((a:any)=>{
     return this.cart.postData(a).subscribe((err:any)=>{
       console.log('err',err);
-      alert('Error in Posting Product details');
     });
   })
 
     this.emptyCart();
-    this.route.navigate(['Orders'])
+    this.route.navigate(['orders'])
 }
 else{
   this.route.navigate(['login'])

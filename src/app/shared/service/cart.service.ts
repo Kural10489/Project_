@@ -54,6 +54,9 @@ return this.productIds.find((a)=>a===productId)
 }
 
 public postData(data:any){
+  data.username=localStorage.getItem('name');
+  console.log(data);
+
   return this.http.post(this.baseUrl +"/OrderDetails",data);
   }
   //After Product Detail page
