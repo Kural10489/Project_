@@ -33,17 +33,20 @@ public existingUserDetails(){
 
 }
 public loginDetails(data:any){
-  return this.http.post(this.server+'/user',data).subscribe((err:any)=>{
-    console.log('err',err);
-  });
+  return this.http.post(this.server+'/user',data).subscribe({
+    next:(data)=>{
+
+    },
+    error:  (err:any)=>{
+      console.log('err',err);
+      // this.navigateToNetworkError();
+
+    }}
+  );
 }
 
 public postRegisterationData(data:any){
-  return this.http.post(this.server+'/register',data).subscribe((err:any)=>{
-    console.log('err',err);
-    // this.navigateToNetworkError();
-
-  });
+  return this.http.post(this.server+'/register',data).subscribe();
   }
 
 public postUniqueUsernames(data:any){
@@ -60,6 +63,7 @@ public getUserName=()=>{
 }
 public logout(){
   localStorage.clear();
+  sessionStorage.clear();
   this.cart.removeAllCartItems();
 }
 

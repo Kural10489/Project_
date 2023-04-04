@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/shared/service/http.service';
 import { UserService } from 'src/app/shared/service/user.service';
-
+import jwt_decode from "jwt-decode";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -39,7 +39,7 @@ public onLogin(){
     email:this.loginForm.value.email,
     password:this.loginForm.value.password
   }
-   this.user.loginDetails(loginData)
+  //  this.user.loginDetails(loginData)
    this.user.existingUserDetails().subscribe({
     next:(result)=>{
    const user=result.find((a:any)=>{
@@ -48,6 +48,10 @@ public onLogin(){
   })
     if(user){
       localStorage.setItem('name',this.username);
+      sessionStorage.setItem('TOKEN',user.token);
+      console.log(jwt_decode(sessionStorage.getItem('TOKEN')!));
+
+      this.user.loginDetails(loginData)
       this.openPopup();
     }
     else{

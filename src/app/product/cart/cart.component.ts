@@ -46,6 +46,7 @@ export class CartComponent {
 public navigateToCheckout(){
     if(this.user.isLogin()){
   this.dispatchProducts=this.singleProduct.map((a:any)=>{
+    a.username=localStorage.getItem('name');
     return this.cart.postData(a).subscribe((err:any)=>{
       console.log('err',err);
     });

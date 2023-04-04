@@ -9,7 +9,7 @@ export class HttpService {
   public productDetails: any = [];
   public userDetails: any;
   public cartProductDetails: any;
-  public baseUrl = `http://localhost:3000/`;
+  public baseUrl = `http://localhost:3000`;
   public cartUrl = `http://localhost:3000/cart`;
   public productUrl = `http://localhost:3000/products`;
   public userUrl = `http://localhost:3000/user`;
@@ -26,7 +26,7 @@ export class HttpService {
 
   //getProductDetais()is to get all the products from the server
   public getProductDetais() {
-    this.http.get(this.baseUrl+"products").subscribe(
+    this.http.get(this.baseUrl+"/products").subscribe(
       (result: any) => {
         this.productDetails = result;
       },
