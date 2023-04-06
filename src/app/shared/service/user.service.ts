@@ -59,7 +59,8 @@ return this.http.post(this.server+'/Usernames',data).subscribe((err:any)=>{
 // Usernames
 
 public getUserName=()=>{
-  return localStorage.getItem('name');
+  // return localStorage.getItem('name');
+  return sessionStorage.getItem('TOKEN');
 }
 public logout(){
   localStorage.clear();

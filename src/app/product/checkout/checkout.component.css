@@ -9,7 +9,7 @@
   height: auto;
 }
 .card{
-  height: 500px;
+  height: 350px;
   width: 1200px;
   margin: 20px;
   position: relative;
@@ -83,8 +83,13 @@ img{
   }
 #address{
 
-  width: 100%;
-  /* margin: 0px 10px; */
+  /* width: 100%; */
+ position: relative;
+ left: 25px;
+}
+#date{
+  position: relative;
+  right: 50px;
 }
 .btns button{
   position: relative;

@@ -16,7 +16,8 @@ export class LoginComponent {
   private text:any;
   public loginForm!:FormGroup;
   public username='';
-
+  public jwt={}
+  public jwtTokenValue=Object.values(this.jwt)[0]
   constructor(private http:HttpClient,private httpMethod:HttpService,private form:FormBuilder,private route:Router
     ,private user:UserService){
     this.email=[];
@@ -49,7 +50,10 @@ public onLogin(){
     if(user){
       localStorage.setItem('name',this.username);
       sessionStorage.setItem('TOKEN',user.token);
-      console.log(jwt_decode(sessionStorage.getItem('TOKEN')!));
+      this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
+
+      console.log(this.jwtTokenValue);
+
 
       this.user.loginDetails(loginData)
       this.openPopup();

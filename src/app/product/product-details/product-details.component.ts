@@ -113,6 +113,8 @@ export class ProductDetailsComponent {
     this.cart.productIds.push(product.id);
     this.cart.totalCost.push(product.price);
     product.username = this.customer;
+    console.log(product);
+
     this.cart.postCart(product).subscribe({
       error: (err) => {
         // this.user.navigateToNetworkError();
