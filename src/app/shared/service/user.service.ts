@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from './cart.service';
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class UserService {
   public authenticate!:boolean;
   public networkError:boolean=false;
   private server='http://localhost:3000';
+  public jwt={}
 
   constructor(private cart:CartService,private http:HttpClient,private route:Router) {
 
@@ -59,8 +61,18 @@ return this.http.post(this.server+'/Usernames',data).subscribe((err:any)=>{
 // Usernames
 
 public getUserName=()=>{
-  // return localStorage.getItem('name');
-  return sessionStorage.getItem('TOKEN');
+  return localStorage.getItem('name');
+  // this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
+  // return Object.values(this.jwt)[0];
+  // return sessionStorage.getItem('name');
+
+}
+public getCustomerName=()=>{
+
+  // this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
+  // return Object.values(this.jwt)[0];
+
+
 }
 public logout(){
   localStorage.clear();
