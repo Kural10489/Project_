@@ -26,7 +26,7 @@ export class HttpService {
 
   //getProductDetais()is to get all the products from the server
   public getProductDetais() {
-    this.http.get(this.baseUrl+"/products").subscribe(
+    this.http.get(this.baseUrl+"/products"+"/women").subscribe(
       (result: any) => {
         this.productDetails = result;
       },
@@ -36,7 +36,28 @@ export class HttpService {
       }
     );
   }
-
+  public getMenProductDetais() {
+    this.http.get(this.baseUrl+"/products"+"/men").subscribe(
+      (result: any) => {
+        this.productDetails = result;
+      },
+      (err: any) => {
+        console.log('err', err);
+        // this.user.navigateToNetworkError();
+      }
+    );
+  }
+  public getKidsProductDetais() {
+    this.http.get(this.baseUrl+"/products"+"/kids").subscribe(
+      (result: any) => {
+        this.productDetails = result;
+      },
+      (err: any) => {
+        console.log('err', err);
+        // this.user.navigateToNetworkError();
+      }
+    );
+  }
   private getCartProducts() {
     return this.http.get<any>(this.cartUrl).subscribe(
       (result: any) => {

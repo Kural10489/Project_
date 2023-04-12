@@ -16,7 +16,7 @@ export class KidsComponent {
   constructor(private http:HttpClient,public httpMethods:HttpService,private cart:CartService,private user:UserService){}
 
   ngOnInit():void{
-    this.httpMethods.getProductDetais();
+    this.httpMethods.getKidsProductDetais();
 
     this.cart.search.subscribe(val=>{
       this.searchKey=val;

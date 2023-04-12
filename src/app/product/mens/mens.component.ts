@@ -19,7 +19,7 @@ export class MensComponent {
     ,public cart:CartService,private route:Router,private user:UserService){}
 
   ngOnInit():void{
-    this.httpMethods.getProductDetais();
+    this.httpMethods.getMenProductDetais();
     // this.cart.getTotalPrice();
 
 this.cart.search.subscribe(val=>{

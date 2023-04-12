@@ -14,6 +14,7 @@ export class UserService {
   public networkError:boolean=false;
   private server='http://localhost:3000';
   public jwt={}
+  public user:any;
 
   constructor(private cart:CartService,private http:HttpClient,private route:Router) {
 
@@ -37,11 +38,13 @@ public existingUserDetails(){
 public loginDetails(data:any){
   return this.http.post(this.server+'/user',data).subscribe({
     next:(data)=>{
+      console.log(data);
+      localStorage.setItem("name",JSON.stringify(data))
 
     },
     error:  (err:any)=>{
       console.log('err',err);
-      // this.navigateToNetworkError();
+      this.navigateToNetworkError();
 
     }}
   );
@@ -68,20 +71,19 @@ public getUserName=()=>{
 
 }
 public getCustomerName=()=>{
-
-  // this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
-  // return Object.values(this.jwt)[0];
-
+   this.jwt= jwt_decode(localStorage.getItem('name')!);
+   return Object.values(this.jwt)[0];
 
 }
 public logout(){
   localStorage.clear();
   sessionStorage.clear();
   this.cart.removeAllCartItems();
+  window.location.reload();
 }
 
 
-// public navigateToNetworkError(){
-//   this.route.navigate(['networkerror'])
-// }
+public navigateToNetworkError(){
+  this.route.navigate(['networkerror'])
+}
 }
