@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
-import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-kids',
@@ -13,7 +11,7 @@ export class KidsComponent {
   public searchKey:string='';
   public pagination:number=1;
 
-  constructor(private http:HttpClient,public httpMethods:HttpService,private cart:CartService,private user:UserService){}
+  constructor(public httpMethods:HttpService,private cart:CartService){}
 
   ngOnInit():void{
     this.httpMethods.getKidsProductDetais();

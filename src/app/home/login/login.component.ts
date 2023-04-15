@@ -42,54 +42,27 @@ public async onLogin(){
     password:this.loginForm.value.password
   }
 
-  this.user.loginDetails(loginData)
-  console.log(JSON.parse(localStorage.getItem("name")!));
+  await this.user.loginDetails(loginData).subscribe({
+    next:(data)=>{
 
-   const user =JSON.parse(localStorage.getItem("name")!)
-    console.log(user.password,this.loginForm.value.password);
-    if( user.email===this.loginForm.value.email && user.password===this.loginForm.value.password){
-      console.log("YES");
-      sessionStorage.setItem('TOKEN',user.token);
+       localStorage.setItem("name",JSON.stringify(data))
+
       this.openPopup();
-      this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
+      this.user.setAuthToken(data);
+    },
+    error:  (err:any)=>{
+      console.log('err',err);
+
+      this.user.navigateToNetworkError();
 
     }
-    else{
-      console.log("NO");
+  }
+  );
 
+    if(!localStorage.getItem("name")){
       this.errorPopup();
     }
-  // ,error:(err:any)=>{
-  //   console.log('err',err);
-  //   // this.user.navigateToNetworkError();
 
-  // }
-
-  //  this.user.existingUserDetails().subscribe({
-  //   next:(result)=>{
-  //  const user=result.find((a:any)=>{
-  //   this.username=a.firstName;
-  //   return a.email===this.loginForm.value.email && a.password===this.loginForm.value.password
-  // })
-  //   if(user){
-  //     localStorage.setItem('name',this.username);
-  //     sessionStorage.setItem('TOKEN',user.token);
-  //     this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
-
-  //     console.log(this.jwtTokenValue);
-
-
-  //     this.user.loginDetails(loginData)
-  //     this.openPopup();
-  //   }
-  //   else{
-  //     this.errorPopup();
-  //   }
-  // },error:(err:any)=>{
-  //   console.log('err',err);
-  //   // this.user.navigateToNetworkError();
-
-  // }});
 }
 
 

@@ -18,13 +18,34 @@ public localStoredName=localStorage.getItem('name');
 
 
   }
+  // ngOnInit(): void {
+  //   this.http.getDispatchProductDetails().subscribe({
+  //     next:(res)=>this.DispatchProductsDetails=res.filter((a:any)=>{
+  //       if(this.localStoredName===a.username){
+  //         return a;
+  //       }
+  //     }),error:(err:any)=>{
+  //       console.log('err',err);
+  //     // this.user.navigateToNetworkError();
+
+  //     }});
+  //   this.http.getUserDetails().subscribe(res=>this.userDetails=res,(err:any)=>{
+  //     console.log('err',err);
+  //     // this.user.navigateToNetworkError();
+
+  //   });
+  // }
   ngOnInit(): void {
     this.http.getDispatchProductDetails().subscribe({
-      next:(res)=>this.DispatchProductsDetails=res.filter((a:any)=>{
-        if(this.localStoredName===a.username){
+      next:(res)=>
+
+      this.DispatchProductsDetails=res.map((a:any)=>{
+
           return a;
-        }
-      }),error:(err:any)=>{
+
+      }
+
+      ),error:(err:any)=>{
         console.log('err',err);
       // this.user.navigateToNetworkError();
 

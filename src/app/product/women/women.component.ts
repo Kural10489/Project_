@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
-import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-women',
@@ -18,8 +16,8 @@ export class WomenComponent {
   // search
   public searchKey:string='';
 
-  constructor(private http:HttpClient,public httpMethods:HttpService
-    ,public cart:CartService,private user:UserService){}
+  constructor(public httpMethods:HttpService
+    ,public cart:CartService){}
 
   ngOnInit():void{
     this.httpMethods.getProductDetais();

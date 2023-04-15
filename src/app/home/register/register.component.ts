@@ -12,15 +12,15 @@ import { UserService } from 'src/app/shared/service/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  uniqueUsernames:any;
+  public notUniqueEmail=false;
   userData:any;
+
   constructor(private fb:FormBuilder,private http:HttpClient,public httpMethods:HttpService,
     private route:Router,private user:UserService,private cart:CartService){}
 
   ngOnInit():void{
     this.httpMethods.getProductDetais();
     this.httpMethods.getUserDetails();
-    this.httpMethods.userDetails?.map((a:any)=>this.uniqueUsernames=a.firstName)
   }
 
   registrationForm=this.fb.group({
@@ -36,11 +36,26 @@ export class RegisterComponent {
 
 public onSignup(){
   const postData=this.registrationForm.value;
-    this.user.postRegisterationData(postData);
-    this.user.postUniqueUsernames(this.registrationForm.get('firstName')!.value);
-    console.log(this.registrationForm.get('firstName')!.value);
+    this.user.postRegisterationData(postData).subscribe(
+      {
+        next:(data)=>{
+          console.log(data);
 
-    this.route.navigate(['']);
+
+        },
+        error:  (err:any)=>{
+          this.notUniqueEmail=true;
+          console.log('err',err.error);
+
+        }
+      }
+    );
+    console.log(this.registrationForm.get('firstName')!.value);
+console.log(this.notUniqueEmail);
+
+if(this.notUniqueEmail){
+  this.route.navigate(['']);
+}
 
 }
 }

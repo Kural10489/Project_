@@ -25,6 +25,7 @@
           <input type="text" class="form-control" formControlName="email" placeholder="Email" name="email" type="email" required>
           <small class="help-text" *ngIf="registrationForm.get('email')?.touched &&! registrationForm.get('email')?.dirty  " class="text-danger"> Email is required</small>
           <small class="text-danger" *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.errors?.['email']">Email Must Start with A-z and should have @</small>
+          <small class="text-danger" *ngIf="notUniqueEmail">Email address is already in use. Please choose another</small>
 
         </div>
 

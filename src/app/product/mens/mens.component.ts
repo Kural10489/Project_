@@ -1,9 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { HttpService } from 'src/app/shared/service/http.service';
-import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-mens',
@@ -15,8 +12,8 @@ export class MensComponent {
   public recommendedProducts:any;
   public pagination:number=1;
   private allProducts=10
-  constructor(private http:HttpClient,public httpMethods:HttpService
-    ,public cart:CartService,private route:Router,private user:UserService){}
+  constructor(public httpMethods:HttpService
+    ,public cart:CartService){}
 
   ngOnInit():void{
     this.httpMethods.getMenProductDetais();

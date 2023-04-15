@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 import jwt_decode from "jwt-decode";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ export class UserService {
   public jwt={}
   public user:any;
 
-  constructor(private cart:CartService,private http:HttpClient,private route:Router) {
-
-
-  }
+  constructor(private cart:CartService
+    ,private http:HttpClient
+    ,private route:Router
+    ){}
 
 public isLogin=()=>{
   if(this.getUserName()){
@@ -36,45 +37,33 @@ public existingUserDetails(){
 
 }
 public loginDetails(data:any){
-  return this.http.post(this.server+'/user',data).subscribe({
-    next:(data)=>{
-      console.log(data);
-      localStorage.setItem("name",JSON.stringify(data))
-
-    },
-    error:  (err:any)=>{
-      console.log('err',err);
-      this.navigateToNetworkError();
-
-    }}
-  );
+  return this.http.post(this.server+'/user',data)
 }
 
 public postRegisterationData(data:any){
-  return this.http.post(this.server+'/register',data).subscribe();
+  return this.http.post(this.server+'/register',data)
+
   }
 
-public postUniqueUsernames(data:any){
-return this.http.post(this.server+'/Usernames',data).subscribe((err:any)=>{
-  console.log('err',err);
-  // this.navigateToNetworkError();
+// public postUniqueUsernames(data:any){
+// return this.http.post(this.server+'/Usernames',data).subscribe((err:any)=>{
+//   console.log('err',err);
+//   // this.navigateToNetworkError();
 
-});
-}
+// });
+// }
 // Usernames
 
 public getUserName=()=>{
   return localStorage.getItem('name');
-  // this.jwt=jwt_decode(sessionStorage.getItem('TOKEN')!)
-  // return Object.values(this.jwt)[0];
-  // return sessionStorage.getItem('name');
 
 }
 public getCustomerName=()=>{
    this.jwt= jwt_decode(localStorage.getItem('name')!);
-   return Object.values(this.jwt)[0];
-
+   console.log(Object.values(this.jwt));
+   return Object.values(this.jwt)[3];
 }
+
 public logout(){
   localStorage.clear();
   sessionStorage.clear();
@@ -85,5 +74,16 @@ public logout(){
 
 public navigateToNetworkError(){
   this.route.navigate(['networkerror'])
+}
+public setAuthToken(getToken:any){
+if (this.getUserName()){
+  console.log(this.getUserName());
+  const token=getToken;
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  this.http.get(`${this.server}/OrderDetails?username=${this.getCustomerName()}`, { headers }).subscribe(data => {
+    console.log(data);
+  });
+
+}
 }
 }

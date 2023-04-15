@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,8 @@ export class CartService {
   public productIds:number[]=[];
   public addedToCart:boolean=false;
   public totalCost:number[]=[];
+
+
   baseUrl ="http://localhost:3000";
   cartUrl=`http://localhost:3000/cart`;
   constructor(private http:HttpClient) {
