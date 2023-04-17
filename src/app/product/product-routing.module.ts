@@ -17,11 +17,15 @@ const routes: Routes = [
   {path:'greatDeals',component:ComingsoonComponent},
   {path:'Gifts',component:ComingsoonComponent},
   {path:'soon',component:ComingsoonComponent},
-  {path:'cart',component:CartComponent},
+  {path:'cart',
+  canActivate:[AuthenticateService],
+  component:CartComponent},
   {path:'orders',
   canActivate:[AuthenticateService],
   component:CheckoutComponent},
-  {path:'product-detail/:id',component:ProductDetailsComponent},
+  {path:'product-detail/:id',
+  canActivate:[AuthenticateService],
+  component:ProductDetailsComponent},
   {path:'**',component:NotfoundComponent},
 
 ];

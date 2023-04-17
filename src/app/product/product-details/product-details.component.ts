@@ -30,7 +30,7 @@ export class ProductDetailsComponent {
   // Adding product to cart
   public size: any;
   public quantity: any;
-  public customer = localStorage.getItem('name');
+  // public customer =this.user.getCustomerName();
 
   @ViewChild('imageSlide') imageSlide: ElementRef | undefined;
   @ViewChild('review') review: ElementRef | undefined;
@@ -58,7 +58,7 @@ export class ProductDetailsComponent {
       next: (data: any) => {
         id = data.params.id;
         this.productid = id;
-        this.http.getProducts().subscribe({
+        this.http.getProducts(id).subscribe({
           next: (res) => {
             this.products = res;
             this.products = this.products.filter((data: any) => data.id == id);
@@ -107,12 +107,14 @@ export class ProductDetailsComponent {
   }
 
   public addToCart(product: any) {
-    product.size = this.size || 1;
+    product.size = this.size || 'S';
     product.quantity = this.quantity || 1;
     this.cart.totalItems++;
     this.cart.productIds.push(product.id);
-    this.cart.totalCost.push(product.price);
-    product.username = this.customer;
+    let totalAmount=product.price*product.quantity
+    this.cart.totalCost.push(product.price*product.quantity);
+    // product.username = this.customer;
+    product.totalAmount=totalAmount;
     console.log(product);
 
     this.cart.postCart(product).subscribe({

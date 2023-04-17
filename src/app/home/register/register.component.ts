@@ -19,7 +19,6 @@ export class RegisterComponent {
     private route:Router,private user:UserService,private cart:CartService){}
 
   ngOnInit():void{
-    this.httpMethods.getProductDetais();
     this.httpMethods.getUserDetails();
   }
 

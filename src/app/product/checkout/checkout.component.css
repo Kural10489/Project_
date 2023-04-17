@@ -9,11 +9,9 @@
   height: auto;
 }
 .card{
-  height: 350px;
-  width: 1200px;
+  height: 100% auto;
+  width: 450px;
   margin: 20px;
-  position: relative;
-  left: 100px;
   padding: 10px;
 }
 .card-table{
@@ -62,8 +60,8 @@ left: 240px;
 .elements{
   padding: 10px;
 }
-
-th{
+/* APR 16 */
+/* th{
   margin: 0px 5px;
   padding: 10px 5px;
   height: 5px;
@@ -72,6 +70,13 @@ th{
 }
 td{
   width: 300px;
+} */
+#orderDetail{
+  display: flex;
+}
+.orderGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .ship{
   position: relative;
@@ -162,4 +167,18 @@ justify-content: center;
 }
 #icons span{
 margin: 0px 40px;
+ }
+ .order{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ }
+ .noOfOrders{
+  background-color: red;
+  color: white;
+  padding: 3px;
+  text-align: center;
+  width: 100%;
+  border-radius: 3px;
  }

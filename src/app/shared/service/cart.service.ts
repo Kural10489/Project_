@@ -55,9 +55,14 @@ public removeAllCartItems(){
 public productIdCheck(productId:any){
 return this.productIds.find((a)=>a===productId)
 }
+public date(){
+  return new Date().toLocaleDateString();
+}
 
 public postData(data:any){
-  data.username=localStorage.getItem('name');
+  data.username=JSON.parse(sessionStorage.getItem("user")!)
+  data.totalAmount=this.getTotalPrice();
+  data.orderPlacedOn=new Date().toLocaleDateString();
   console.log(data);
 
   return this.http.post(this.baseUrl +"/OrderDetails",data);

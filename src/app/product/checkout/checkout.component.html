@@ -1,61 +1,40 @@
 <br>
 
 <ng-container *ngIf="DispatchProductsDetails.length!=0">
-  <h2 class="center">Your Orders</h2>
-  <strong class="center">{{totalNumberOfOrders}} Orders placed</strong>
-    <div class="card" *ngFor="let item of DispatchProductsDetails; let i=index">
-    <div class="container">
-  <div class="card-table">
-    <div class="cart-product">
-      <table class="table table-responsive" >
-        <thead>
-          <tr>
-            <th class="sno">S.no</th>
-            <th class="orderplaced">Order Placed On</th>
-            <th>Delivery Address</th>
-          </tr>
-
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{i+1}}</td>
-            <td id="date">{{date()}}</td>
-
-            <td id="address">{{userAddress()}}</td>
-            <!-- <td>
-              <button class="btn"><span class="material-symbols-outlined delete" (click)="deleteAllSingleProduct(item)">
-                delete_forever
-                </span></button>
-            </td> -->
-          </tr>
-          <tr>
-            <td><img src="{{item.image}}" alt=""></td>
-          </tr>
-          <td><small class="title">{{item.title}}</small></td>
-          <!-- <input type="range" min="1" max="4" disabled value="2" id="range">
-          <div class="icons" id="icons">
-            <span class="material-symbols-outlined flag">
-              flag_circle
-              </span>
-            <span class="material-symbols-outlined">
-              package
-              </span>
-            <span class="material-symbols-outlined">
-              local_shipping
-              </span>
-              <span class="material-symbols-outlined">
-                verified
-                </span>
-          </div> -->
-
-
-        </tbody>
-      </table>
-    </div>
+  <div class="order">
+    <h2 >Your Orders</h2>
+    <span>Total Number of orders :
+     <i class="noOfOrders">{{DispatchProductsDetails.length}} </i>
+    </span>
   </div>
+  <div class="orderGrid">
+
+    <div class="card" *ngFor="let item of DispatchProductsDetails; let i=index">
+      <div>Order No {{i+1}}</div>
+    <br>
+    <div id="orderDetail">
+    <div><img src="{{item.image}}" alt=""></div>
+    <div class="address">
+      <div>
+        <strong> {{item.title}} </strong>
+      </div> <br> <br>
+      <div>Order Placed On: {{item.orderPlacedOn}}</div>
+      <br>
+      <div>
+        Delivered to:
+        <br>
+        {{item.address}}</div>
+      <br>
+
+      <div><strong>Total Cost : {{item.totalAmount|currency:"INR"}}</strong></div>
+    </div>
+    </div>
 </div>
 </div>
 </ng-container>
+
+
+
 <div class="containerDiv">
   <div class="container" *ngIf="DispatchProductsDetails.length==0">
     <div class="card">

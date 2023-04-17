@@ -61,6 +61,7 @@ public getUserName=()=>{
 public getCustomerName=()=>{
    this.jwt= jwt_decode(localStorage.getItem('name')!);
    console.log(Object.values(this.jwt));
+   sessionStorage.setItem("user",JSON.stringify(Object.values(this.jwt)[3]))
    return Object.values(this.jwt)[3];
 }
 
@@ -81,9 +82,10 @@ if (this.getUserName()){
   const token=getToken;
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   this.http.get(`${this.server}/OrderDetails?username=${this.getCustomerName()}`, { headers }).subscribe(data => {
-    console.log(data);
+    sessionStorage.setItem("orderDetails",JSON.stringify(data))
   });
 
 }
+
 }
 }

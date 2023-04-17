@@ -13,61 +13,34 @@ public orderDetails:any;
 public DispatchProductsDetails:any=[];
 public totalNumberOfOrders=this.DispatchProductsDetails.length;
 public userDetails:any=[];
-public localStoredName=localStorage.getItem('name');
+public token=localStorage.getItem('name');
+public total:any=[]
+public totalAmount:any;
+public AmountToBePaid:any;
+
   constructor(public http:HttpService,public cart:CartService,private user:UserService){
 
 
   }
-  // ngOnInit(): void {
-  //   this.http.getDispatchProductDetails().subscribe({
-  //     next:(res)=>this.DispatchProductsDetails=res.filter((a:any)=>{
-  //       if(this.localStoredName===a.username){
-  //         return a;
-  //       }
-  //     }),error:(err:any)=>{
-  //       console.log('err',err);
-  //     // this.user.navigateToNetworkError();
-
-  //     }});
-  //   this.http.getUserDetails().subscribe(res=>this.userDetails=res,(err:any)=>{
-  //     console.log('err',err);
-  //     // this.user.navigateToNetworkError();
-
-  //   });
-  // }
   ngOnInit(): void {
-    this.http.getDispatchProductDetails().subscribe({
-      next:(res)=>
-
-      this.DispatchProductsDetails=res.map((a:any)=>{
-
-          return a;
-
-      }
-
-      ),error:(err:any)=>{
-        console.log('err',err);
-      // this.user.navigateToNetworkError();
-
-      }});
-    this.http.getUserDetails().subscribe(res=>this.userDetails=res,(err:any)=>{
-      console.log('err',err);
-      // this.user.navigateToNetworkError();
-
-    });
+   this.user.setAuthToken(this.token);
+   this.DispatchProductsDetails=JSON.parse(sessionStorage.getItem('orderDetails')!)
+    console.log(this.DispatchProductsDetails);
+    this.totalAmountToBePaid()
   }
-public date(){
-  return new Date().toLocaleDateString();
-}
-public userAddress(){
-  if(this.userDetails.map((a:any)=>a.firstName==this.localStoredName)){
-  return this.userDetails.find((a:any)=>a.address).address;
-}
-else{
-  return (`
-lakshmi nagar,velachery,chennai-28
-  `)
-}
-}
 
+public totalAmountToBePaid(){
+  const dispatchPrice=this.DispatchProductsDetails.filter((a:any)=>{
+    console.log(a.price);
+    this.total= (this.total+a.price);
+    return a.price})
+    this.totalAmount=this.total.match(/.{1,4}/g);
+    this.AmountToBePaid=this.totalAmount.map(Number);
+    console.log( this.totalAmount);
+
+  return this.AmountToBePaid.reduce((a:any,b:any)=>{
+    console.log(a+b);
+    return a+b})
+
+}
 }

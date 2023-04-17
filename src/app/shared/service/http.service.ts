@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -19,10 +20,9 @@ export class HttpService {
   constructor(
     private http: HttpClient,
     private route: Router,
-  
+    private user:UserService
   ) {
     this.getUserDetails();
-    this.getProductDetais();
     this.getDispatchProductDetails();
   }
 
@@ -60,22 +60,12 @@ export class HttpService {
       }
     );
   }
-  private getCartProducts() {
-    return this.http.get<any>(this.cartUrl).subscribe(
-      (result: any) => {
-        this.cartProductDetails = result;
-      },
-      (err: any) => {
-        console.log('err', err);
-        // this.user.navigateToNetworkError();
-      }
-    );
-  }
+
 
   public getDispatchProductDetails() {
 
     return this.http.get<any>(
-      `${this.baseUrl}/OrderDetails?username=}`
+      `${this.baseUrl}/OrderDetails?username=${JSON.parse(sessionStorage.getItem("user")!)}`
       //  ${this.getCustomerName()}
     );
   }
@@ -87,8 +77,8 @@ export class HttpService {
     return this.http.get(this.userUrl);
   }
 
-  public getProducts() {
-    return this.http.get(this.productUrl);
+  public getProducts(id:number) {
+    return this.http.get(this.productUrl+"/product-detail/"+id);
   }
 
   public getpaginatedProducts(page: number) {
